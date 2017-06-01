@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<DataLoggerlar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DataLoggerlar>
+    <DataLogger>
+      <DLIsim>Mnieaa12</DLIsim>
+      <Konum>0</Konum>
+      <TxtPath>D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release/Mnieaa12.txt</TxtPath>
+      <DLSensorSayisi>2</DLSensorSayisi>
+      <TelefonNumarasi>544135</TelefonNumarasi>
+      <SonKalibrasyonTarihi>2016-10-02T14:57:44.8273990+03:00</SonKalibrasyonTarihi>
+      <SensorListesi>
+        <Sensor>
+          <SensorIndex>0</SensorIndex>
+          <SensorIsim>dfgh</SensorIsim>
+          <_degerler />
+          <Konum />
+        </Sensor>
+        <Sensor>
+          <SensorIndex>1</SensorIndex>
+          <SensorIsim>hyj</SensorIsim>
+          <_degerler />
+          <Konum />
+        </Sensor>
+      </SensorListesi>
+    </DataLogger>
+    <DataLogger>
+      <DLIsim>f343</DLIsim>
+      <Konum>0</Konum>
+      <TxtPath>D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release/f343.txt</TxtPath>
+      <DLSensorSayisi>2</DLSensorSayisi>
+      <TelefonNumarasi>544</TelefonNumarasi>
+      <SonKalibrasyonTarihi>2016-10-02T14:57:44.827399+03:00</SonKalibrasyonTarihi>
+      <SensorListesi>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>0</SensorIndex>
+          <SensorIsim>dfgh</SensorIsim>
+          <Konum />
+        </Sensor>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>1</SensorIndex>
+          <SensorIsim>hyj</SensorIsim>
+          <Konum />
+        </Sensor>
+      </SensorListesi>
+    </DataLogger>
+    <DataLogger>
+      <DLIsim>hjgjh</DLIsim>
+      <Konum>0</Konum>
+      <TxtPath>D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release/hjgjh.txt</TxtPath>
+      <DLSensorSayisi>2</DLSensorSayisi>
+      <TelefonNumarasi>65657</TelefonNumarasi>
+      <SonKalibrasyonTarihi>2016-10-02T15:02:22.3354055+03:00</SonKalibrasyonTarihi>
+      <SensorListesi>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>0</SensorIndex>
+          <SensorIsim>wer</SensorIsim>
+          <Konum />
+        </Sensor>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>1</SensorIndex>
+          <SensorIsim>e4gf5</SensorIsim>
+          <Konum />
+        </Sensor>
+      </SensorListesi>
+    </DataLogger>
+    <DataLogger>
+      <DLIsim>5gfdgd123</DLIsim>
+      <Konum>0</Konum>
+      <TxtPath>D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release/5gfdgd123.txt</TxtPath>
+      <DLSensorSayisi>2</DLSensorSayisi>
+      <TelefonNumarasi>545412</TelefonNumarasi>
+      <SonKalibrasyonTarihi>2016-10-02T15:04:59.5799577+03:00</SonKalibrasyonTarihi>
+      <SensorListesi>
+        <Sensor>
+          <SensorIndex>0</SensorIndex>
+          <SensorIsim>345gfd</SensorIsim>
+          <_degerler />
+          <Konum />
+        </Sensor>
+        <Sensor>
+          <SensorIndex>1</SensorIndex>
+          <SensorIsim>ujyu</SensorIsim>
+          <_degerler />
+          <Konum />
+        </Sensor>
+      </SensorListesi>
+    </DataLogger>
+    <DataLogger>
+      <DLIsim>fgdg</DLIsim>
+      <Konum>0</Konum>
+      <TxtPath>D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release/fgdg.txt</TxtPath>
+      <DLSensorSayisi>2</DLSensorSayisi>
+      <TelefonNumarasi>34356</TelefonNumarasi>
+      <SonKalibrasyonTarihi>2016-10-02T15:06:04.549073+03:00</SonKalibrasyonTarihi>
+      <SensorListesi>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>0</SensorIndex>
+          <SensorIsim>54</SensorIsim>
+          <Konum />
+        </Sensor>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>1</SensorIndex>
+          <SensorIsim>65</SensorIsim>
+          <Konum />
+        </Sensor>
+      </SensorListesi>
+    </DataLogger>
+    <DataLogger>
+      <DLIsim>bb</DLIsim>
+      <Konum>0</Konum>
+      <TxtPath>D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release/bb.txt</TxtPath>
+      <DLSensorSayisi>2</DLSensorSayisi>
+      <TelefonNumarasi>bnyy</TelefonNumarasi>
+      <SonKalibrasyonTarihi>2016-10-02T15:06:57.744427+03:00</SonKalibrasyonTarihi>
+      <SensorListesi>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>0</SensorIndex>
+          <SensorIsim>bbn</SensorIsim>
+          <Konum />
+        </Sensor>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>1</SensorIndex>
+          <SensorIsim>nbb</SensorIsim>
+          <Konum />
+        </Sensor>
+      </SensorListesi>
+    </DataLogger>
+    <DataLogger>
+      <DLIsim>wewe</DLIsim>
+      <Konum>0</Konum>
+      <TxtPath>D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release/wewe.txt</TxtPath>
+      <DLSensorSayisi>2</DLSensorSayisi>
+      <TelefonNumarasi>45545</TelefonNumarasi>
+      <SonKalibrasyonTarihi>2016-10-02T15:19:28.0547131+03:00</SonKalibrasyonTarihi>
+      <SensorListesi>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>0</SensorIndex>
+          <SensorIsim>fdg</SensorIsim>
+          <Konum />
+        </Sensor>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>1</SensorIndex>
+          <SensorIsim>htgh</SensorIsim>
+          <Konum />
+        </Sensor>
+      </SensorListesi>
+    </DataLogger>
+  </DataLoggerlar>
+  <KurumAdi>Ankara Hastanesi</KurumAdi>
+  <AlanBuyuklugu>150</AlanBuyuklugu>
+</DataLoggerlar>

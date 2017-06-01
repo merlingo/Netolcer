@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<DataLoggerlar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DataLoggerlar>
+    <DataLogger>
+      <DLIsim>as</DLIsim>
+      <Konum>0</Konum>
+      <TxtPath>D:\Calismalar\Net Ölçer\DL1.TXT</TxtPath>
+      <Id>as</Id>
+      <DLSensorSayisi>2</DLSensorSayisi>
+      <TelefonNumarasi>1234123243</TelefonNumarasi>
+      <SonKalibrasyonTarihi>2016-09-05T00:05:31.924056+03:00</SonKalibrasyonTarihi>
+      <SensorListesi>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>0</SensorIndex>
+          <SensorIsim>as</SensorIsim>
+          <Konum />
+        </Sensor>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>1</SensorIndex>
+          <SensorIsim>s</SensorIsim>
+          <Konum />
+        </Sensor>
+      </SensorListesi>
+    </DataLogger>
+    <DataLogger>
+      <DLIsim>asf</DLIsim>
+      <Konum>0</Konum>
+      <TxtPath>D:\Calismalar\Net Ölçer\DL4 .TXT</TxtPath>
+      <Id>21</Id>
+      <DLSensorSayisi>2</DLSensorSayisi>
+      <TelefonNumarasi>122233213</TelefonNumarasi>
+      <SonKalibrasyonTarihi>2016-09-05T00:05:48.1892223+03:00</SonKalibrasyonTarihi>
+      <SensorListesi>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>0</SensorIndex>
+          <SensorIsim>12</SensorIsim>
+          <Konum />
+        </Sensor>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>1</SensorIndex>
+          <SensorIsim>121</SensorIsim>
+          <Konum />
+        </Sensor>
+      </SensorListesi>
+    </DataLogger>
+  </DataLoggerlar>
+  <KurumAdi>sAD</KurumAdi>
+  <AlanBuyuklugu>asfsda</AlanBuyuklugu>
+</DataLoggerlar>

@@ -1,0 +1,52 @@
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\bin\Release\Arayuz.exe.config
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\bin\Release\Arayuz.exe.manifest
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\bin\Release\Arayuz.application
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\bin\Release\Arayuz.exe
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\bin\Release\Arayuz.pdb
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\bin\Release\Baglanti.dll
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\bin\Release\itextsharp.dll
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\bin\Release\itextsharp.pdfa.dll
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\bin\Release\itextsharp.xtra.dll
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\bin\Release\Baglanti.pdb
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\bin\Release\itextsharp.xml
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\obj\Release\Arayuz.csprojResolveAssemblyReference.cache
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\obj\Release\Arayuz.Form1.resources
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\obj\Release\Arayuz.Properties.Resources.resources
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\obj\Release\Arayuz.csproj.GenerateResource.Cache
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\obj\Release\Arayuz.exe.manifest
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\obj\Release\Arayuz.application
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\obj\Release\Arayuz.exe
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\Arayuz\obj\Release\Arayuz.pdb
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\obj\Release\Arayuz.csprojResolveAssemblyReference.cache
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\obj\Release\Arayuz.Form1.resources
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\obj\Release\Arayuz.FrmAnaEkran.resources
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\obj\Release\Arayuz.csproj.GenerateResource.Cache
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release\Baglanti.dll
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release\itextsharp.dll
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release\itextsharp.pdfa.dll
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release\itextsharp.xtra.dll
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release\Baglanti.pdb
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release\itextsharp.xml
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\obj\Release\Arayuz.FrmDataLoggerEkle.resources
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\obj\Release\Arayuz.FrmKurulumEkrani.resources
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release\System.Web.DataVisualization.Design.dll
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release\System.Web.DataVisualization.dll
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\obj\Release\Arayuz.FrmGrafikGosterim.resources
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\obj\Release\Arayuz.FrmStatistikler.resources
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\obj\Release\Arayuz.FrmPdfCikti.resources
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\obj\Release\Arayuz.FrmCiktiTarihDegistir.resources
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\obj\Release\Arayuz.TehlikeliDeger.resources
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\obj\Release\Arayuz.FrmTekDLGrafik.resources
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release\Netolcer.exe.config
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release\Netolcer.exe.manifest
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release\Netolcer.application
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release\Netolcer.exe
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release\Netolcer.pdb
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\obj\Release\Netolcer.Properties.Resources.resources
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\obj\Release\Netolcer.exe.manifest
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\obj\Release\Netolcer.application
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\obj\Release\Netolcer.exe
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\obj\Release\Netolcer.pdb
+D:\git\Net olcer\Arayuz\bin\Release\Netolcer.exe.config
+D:\git\Net olcer\Arayuz\obj\Release\Netolcer.exe
+D:\git\Net olcer\Arayuz\obj\Release\Netolcer.pdb

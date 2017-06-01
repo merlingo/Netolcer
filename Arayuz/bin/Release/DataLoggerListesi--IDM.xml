@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<DataLoggerlar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DataLoggerlar>
+    <DataLogger>
+      <DLIsim>DEPO</DLIsim>
+      <Konum>0</Konum>
+      <TxtPath>D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release/DEPO.txt</TxtPath>
+      <Id>CROSSOVER_D1</Id>
+      <DLSensorSayisi>2</DLSensorSayisi>
+      <TelefonNumarasi>05511348781</TelefonNumarasi>
+      <SonKalibrasyonTarihi>2016-10-08T17:23:35.0000000</SonKalibrasyonTarihi>
+      <SensorListesi>
+        <Sensor>
+          <SensorIndex>0</SensorIndex>
+          <SensorIsim>DIS-ORTAM</SensorIsim>
+          <_degerler />
+          <Konum />
+        </Sensor>
+        <Sensor>
+          <SensorIndex>1</SensorIndex>
+          <SensorIsim>SOGUK-DEPO</SensorIsim>
+          <_degerler />
+          <Konum />
+        </Sensor>
+      </SensorListesi>
+      <TehlikeliUstSicaklik>27</TehlikeliUstSicaklik>
+      <TehlikeliAltSicaklik>17</TehlikeliAltSicaklik>
+      <TehlikeliUstNem>50</TehlikeliUstNem>
+      <TehlikeliAltNem>20</TehlikeliAltNem>
+    </DataLogger>
+    <DataLogger>
+      <DLIsim>KARANTINA</DLIsim>
+      <Konum>0</Konum>
+      <TxtPath>D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release\KARANTINA.txt</TxtPath>
+      <Id>CROSSOVER_K1</Id>
+      <DLSensorSayisi>2</DLSensorSayisi>
+      <TelefonNumarasi>05511348783</TelefonNumarasi>
+      <SonKalibrasyonTarihi>2016-10-08T17:31:58.0000000</SonKalibrasyonTarihi>
+      <SensorListesi>
+        <Sensor>
+          <SensorIndex>0</SensorIndex>
+          <SensorIsim>1.SENSOR</SensorIsim>
+          <_degerler />
+          <Konum />
+        </Sensor>
+        <Sensor>
+          <SensorIndex>1</SensorIndex>
+          <SensorIsim>2.SENSOR</SensorIsim>
+          <_degerler />
+          <Konum />
+        </Sensor>
+      </SensorListesi>
+      <TehlikeliUstSicaklik>21</TehlikeliUstSicaklik>
+      <TehlikeliAltSicaklik>17</TehlikeliAltSicaklik>
+      <TehlikeliUstNem>57</TehlikeliUstNem>
+      <TehlikeliAltNem>25</TehlikeliAltNem>
+    </DataLogger>
+    <DataLogger>
+      <DLIsim>UYUSTURUCU</DLIsim>
+      <Konum>0</Konum>
+      <TxtPath>D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release\UYUSTURUCU.txt</TxtPath>
+      <Id>CROSSOVER_U1</Id>
+      <DLSensorSayisi>2</DLSensorSayisi>
+      <TelefonNumarasi>05511348782</TelefonNumarasi>
+      <SonKalibrasyonTarihi>2016-10-08T17:33:13</SonKalibrasyonTarihi>
+      <SensorListesi>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>0</SensorIndex>
+          <SensorIsim>1.SENSOR</SensorIsim>
+          <Konum />
+        </Sensor>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>1</SensorIndex>
+          <SensorIsim>2.SENSOR</SensorIsim>
+          <Konum />
+        </Sensor>
+      </SensorListesi>
+    </DataLogger>
+  </DataLoggerlar>
+  <KurumAdi>IDM_CROSSOVER</KurumAdi>
+  <AlanBuyuklugu>250</AlanBuyuklugu>
+</DataLoggerlar>

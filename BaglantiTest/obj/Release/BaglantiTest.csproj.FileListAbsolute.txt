@@ -1,0 +1,11 @@
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\BaglantiTest\bin\Release\BaglantiTest.dll
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\BaglantiTest\bin\Release\BaglantiTest.pdb
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\BaglantiTest\bin\Release\Arayuz.exe
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\BaglantiTest\bin\Release\Baglanti.dll
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\BaglantiTest\bin\Release\itextsharp.dll
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\BaglantiTest\bin\Release\Arayuz.pdb
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\BaglantiTest\bin\Release\Baglanti.pdb
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\BaglantiTest\bin\Release\itextsharp.xml
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\BaglantiTest\obj\Release\BaglantiTest.csprojResolveAssemblyReference.cache
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\BaglantiTest\obj\Release\BaglantiTest.dll
+D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol\BaglantiTest\obj\Release\BaglantiTest.pdb
