@@ -43,18 +43,6 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Baglanti.dll" size="8704">
-      <assemblyIdentity name="Baglanti" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>rtbEaT2CPJIt7ktTUU28+4k3QzsMtlU6oJkODZR+nII=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="itextsharp.dll" size="4001792">
       <assemblyIdentity name="itextsharp" version="5.5.3.0" publicKeyToken="8354AE6D2174DDCA" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -91,14 +79,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Netolcer.exe" size="542720">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Netolcer.exe" size="544768">
       <assemblyIdentity name="Netolcer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bxmBLjCGKpJSgC/v9Y5ibdo6Hs3hUB0olj1eMAGrHR0=</dsig:DigestValue>
+        <dsig:DigestValue>+qvbKMVLWmEb1waG5YL90pNsbyfsxMRNRNgjbS/1NFo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
