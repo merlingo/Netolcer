@@ -158,14 +158,26 @@ namespace Arayuz
            
 
         }
-        public bool FormatGecerliMi(string dblInText)
+       
+        public String toStringJson()
         {
-            return double.Parse(dblInText) < 100;
+            String json = "";
+            json = "{\"ad\":\"" + _isim + "\",\"sensorSayisi\":\"" + SensorSayisi + "\",\"telefonNumarasi\":\"" + TelefonNumarasi + "\",\"sonKalibrasyonTarihi\":\"" + SonKalibrasyonTarihi + "\"}";
+
+            return json;
+        }
+        public static bool FormatGecerliMi(string deger)
+        {
+            int c = deger.Count();
+            if (deger.StartsWith("0"))
+                return double.Parse(deger) < (10 ^ (c - 2));
+            return double.Parse(deger) < (10 ^(c-1));
         }
 
             public void ParsingText(bool verilerYuklensin=true)
         {
             dt = new DataTable();
+
             if (verilerYuklensin)
                 VerileriDosyadanYukle();
             //alınan Parcalı ogelerden birleşik bir tablo hazırla
@@ -186,7 +198,8 @@ namespace Arayuz
                 if (j == count - 1)
                     continue;
                 if (SensorListesi[0]._degerler[j].Zaman == SensorListesi[0]._degerler[j + 1].Zaman)
-                    dt.Rows.Add(SensorListesi[0]._degerler[j].Zaman,
+                    dt.Rows.Add(
+                        SensorListesi[0]._degerler[j].Zaman,
                         SensorListesi[0]._degerler[j].Deger,//1. sensor ısı değeri
                         SensorListesi[0]._degerler[j + 1].Deger,//1. sensor nem degeri
                         SensorListesi[1]._degerler[j].Deger,//2. sensor ısı değeri
@@ -229,7 +242,8 @@ namespace Arayuz
                             parcalar = p[1].Split(new String[] { "   " }, StringSplitOptions.RemoveEmptyEntries);
                             tarih = parcalar[0].Split(new String[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
                             parcalar_onceki = parcalar_onceki.Count() == sfr ? parcalar : parcalar_onceki;
-
+                           
+                           
                             if (parcalar.Length == 5)
                             {
                                 if (parcalar[4].Length <= 1)
@@ -315,6 +329,126 @@ namespace Arayuz
                     }
                 }
             }
+            //public static async Task VerileriDosyadanYukleAync()
+            //{
+            //    String result = "", cr;
+            //    string line;
+            //    string[] parcalar;
+            //    string[] p;
+            //    string[] parcalar_onceki = new string[5];
+            //    string[] saat;
+            //    string[] tarih;
+            //    int SatirSayisi = 0;
+            //    int i = 0;
+            //    int sfr = 0;
+            //    List<NetOlcerBirimi> SensorListesi = new List<NetOlcerBirimi>();
+            //    // FileStream fileStream = new FileStream(@"D:\git\Net olcer\Arayuz\bin\Release\Koridor2.txt", FileMode.Append, FileAccess.Write, FileShare.None, bufferSize: 4096, useAsync: true);
+            //    using (StreamReader reader = File.OpenText(@"D:\git\Net olcer\Arayuz\bin\Release\Koridor2.txt"))
+            //    {
+            //        Console.WriteLine("Opened file.");
+            //        while ((cr = await reader.ReadLineAsync()) != null)
+            //        {
+            //            try
+            //            {
+            //                if (line.Count() <= 1)
+            //                    continue;
+            //                if (line.Contains("JERA") || line.Contains("SAAT") || line.Contains(")"))
+            //                    continue;
+            //                //YENI MODUL p0 saati verecek tarih doldururken lazım olacak
+            //                p = line.Split(new String[] { "     " }, StringSplitOptions.RemoveEmptyEntries);
+            //                saat = p[0].Split(new String[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
+            //                //SAATin ilk hour kısmında 2 karakter fazla satır sonu karakteri, onları silme
+            //                saat[0] = saat[0].Remove(0, 1);
+            //                // Do something with the line
+            //                parcalar = p[1].Split(new String[] { "   " }, StringSplitOptions.RemoveEmptyEntries);
+            //                tarih = parcalar[0].Split(new String[] { "/" }, StringSplitOptions.RemoveEmptyEntries);
+            //                parcalar_onceki = parcalar_onceki.Count() == sfr ? parcalar : parcalar_onceki;
+
+            //                if (parcalar.Length == 5)
+            //                {
+            //                    if (parcalar[4].Length <= 1)
+            //                        continue;
+            //                    double isi1, isi2, NemSensör1, NemSensör2;
+            //                    if (FormatGecerliMi(parcalar[1].Split(' ')[0]))//eğer txtdeki format geçerli değil ise . yerine , konulur
+            //                    {
+            //                        isi1 = double.Parse(parcalar[1].Split(' ')[0]);
+            //                        isi2 = double.Parse(parcalar[3].Split(' ')[0]);
+            //                        NemSensör1 = double.Parse(parcalar[2].Split(' ')[0]);
+            //                        NemSensör2 = double.Parse(parcalar[4].Split(' ')[0]);
+            //                    }
+            //                    else
+            //                    {
+            //                        isi1 = double.Parse(parcalar[1].Split(' ')[0].Replace('.', ','));
+            //                        isi2 = double.Parse(parcalar[3].Split(' ')[0].Replace('.', ','));
+            //                        NemSensör1 = double.Parse(parcalar[2].Split(' ')[0].Replace('.', ','));
+            //                        NemSensör2 = double.Parse(parcalar[4].Split(' ')[0].Replace('.', ','));
+            //                    }
+            //                    i++;
+            //                    SatirSayisi = SatirSayisi + line.Count();
+            //                    //HATA: eğer birbirlerinin yerlerine yazılmışlarsa ama 0 değilse
+            //                    if ((isi1 == NemSensör1 && isi1 != 0) | isi1 == NemSensör2 | (isi2 == NemSensör2 && isi2 != 0) | isi2 == NemSensör1)
+            //                    {
+            //                        AllString = allText.Remove(SatirSayisi + 1, line.Count());
+            //                        continue;
+            //                    }
+            //                    try
+            //                    {
+            //                        //sensör listesinde 2 tane sensör vardır her ikisinde de isi ve nem değerleri vardır.
+            //                        SensorListesi[0].DegerleEkle(new NetOlcerBirimi
+            //                        {
+            //                            Tip = "isi",
+            //                            Birim = "C",
+            //                            Zaman = new System.DateTime(int.Parse("20" + tarih[2]), int.Parse(tarih[1]), int.Parse(tarih[0]), int.Parse(saat[0]), int.Parse(saat[1]), int.Parse(saat[2])),
+            //                            Deger = isi1,
+            //                            SensorIndex = 0,
+            //                            Sensor = SensorListesi[0].Isim
+            //                        });
+            //                        SensorListesi[0].DegerleEkle(new NetOlcerBirimi
+            //                        {
+            //                            Tip = "nem",
+            //                            Birim = "%",
+            //                            Zaman = new System.DateTime(int.Parse("20" + tarih[2]), int.Parse(tarih[1]), int.Parse(tarih[0]), int.Parse(saat[0]), int.Parse(saat[1]), int.Parse(saat[2])),
+            //                            Deger = NemSensör1,//float.Parse(parcalar[2].Split(' ')[0].Replace('.', ',')),
+            //                            SensorIndex = 0,
+            //                            Sensor = SensorListesi[0].Isim
+            //                        });
+            //                        SensorListesi[1].DegerleEkle(new NetOlcerBirimi
+            //                        {
+            //                            Tip = "isi",
+            //                            Birim = "C",
+            //                            Zaman = new System.DateTime(int.Parse("20" + tarih[2]), int.Parse(tarih[1]), int.Parse(tarih[0]), int.Parse(saat[0]), int.Parse(saat[1]), int.Parse(saat[2])),
+            //                            Deger = isi2,//float.Parse(parcalar[3].Split(' ')[0].Replace('.', ',')),
+            //                            SensorIndex = 1,
+            //                            Sensor = SensorListesi[1].Isim
+            //                        });
+            //                        SensorListesi[1].DegerleEkle(new NetOlcerBirimi
+            //                        {
+            //                            Tip = "nem",
+            //                            Birim = "%",
+            //                            Zaman = new System.DateTime(int.Parse("20" + tarih[2]), int.Parse(tarih[1]), int.Parse(tarih[0]), int.Parse(saat[0]), int.Parse(saat[1]), int.Parse(saat[2])),
+            //                            Deger = NemSensör2,// float.Parse(parcalar[4].Split(' ')[0].Replace('.', ',')),
+            //                            SensorIndex = 1,
+            //                            Sensor = SensorListesi[1].Isim
+            //                        });
+
+            //                    }
+            //                    catch
+            //                    {
+            //                        continue;
+            //                    }
+            //                }
+            //                else
+            //                {
+            //                    Console.WriteLine(line);
+            //                }
+            //            }
+            //            catch
+            //            {
+            //                continue;
+            //            }
+            //        }
+            //    }
+            //}
         public string HataAyikla(string AllString)
     {
         using (StringReader reader = new StringReader(AllString))
@@ -589,13 +723,20 @@ namespace Arayuz
         [XmlArray("DataLoggerlar")]
         [XmlArrayItem("DataLogger")]
         public List<DataLogger> DataLoggerlar { get; set; }
+        [XmlElement("KurumID")]
+        public string KurumID { get; set; }
         [XmlElement("KurumAdi")]
         public string KurumAdi { get; set; }
-        [XmlElement("AlanBuyuklugu")]
-        public string AlanBuyuklugu { get; set; }
-        [XmlElement("KrokiPath")]
-        public string KrokiPath { get; set; }
-
+        [XmlElement("Adres")]
+        public string Adres { get; set; }
+        [XmlElement("Sehir")]
+        public string Sehir { get; set; }
+        [XmlElement("TelNo")]
+        public string TelNo { get; set; }
+        [XmlElement("Mail")]
+        public string Mail { get; set; }
+        [XmlElement("password")]
+        public string Password { get; set; }
         [System.Xml.Serialization.XmlIgnore]
         Chart genelChart=null;
 
@@ -613,6 +754,13 @@ namespace Arayuz
                     allList.AddRange(dl.SensorListesi[1]._degerler.Where(x => x.Tip == "isi"));
             }
             return DataLogger.EnYuksekDeger(allList);
+        }
+        public String toStringJson()
+        {
+            String json = "";
+            json = "{\"kurum\":\"" + KurumAdi + "\",\"adres\":\""+Adres+"\",\"sehir\":\""+Sehir+"\",\"telno\":\""+TelNo+"\",\"mail\":\""+Mail+"\",\"password\":\""+Password+"\"}";
+
+            return json;
         }
         public NetOlcerBirimi EnYuksekSicaklik(DateTime altTarih, DateTime ustTarih)
         {

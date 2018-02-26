@@ -107,7 +107,7 @@ namespace Arayuz
                     if (checkBoxVerileriAyarla.Checked)
                         TehlikelileriDegistir(cikiOptions);
                     CıktıAl cikti = new CıktıAl(cikiOptions, dataloggerlar);
-                    cikti.createPdf(fs);
+                   // cikti.createPdf(fs);
                 }
                 catch
                 {
@@ -218,34 +218,5 @@ namespace Arayuz
         }
     }
     
-    public class CiktiDataLoggerItem
-    {
-        public string DataLoggerAdi { get; set; }
-        public DateTime BaslangicTarihi { get; set; }
-        public DateTime SonlanisTarihi { get; set; }
-        public bool secilebilir = true;
-        public List<Sensor> sensorListesi;
-        public CiktiDataLoggerItem(DataLogger dl)
-        {
-            DataLoggerAdi = dl.Isim;
-            try
-            {
-                BaslangicTarihi = dl.IlkTarih();
-                SonlanisTarihi = dl.SonTarih();
-                sensorListesi = dl.SensorListesi;
-            }
-            catch
-            {
-                secilebilir = false;
-                BaslangicTarihi = DateTime.MinValue;
-                SonlanisTarihi = DateTime.MaxValue;
 
-            }
-        }
-       
-        public override string ToString()
-        {
-            return DataLoggerAdi + " ---->    " + BaslangicTarihi.ToShortDateString() + "  -  " + SonlanisTarihi.ToShortDateString();
-        }
-    }
 }

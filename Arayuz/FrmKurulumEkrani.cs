@@ -15,9 +15,8 @@ namespace Arayuz
     public partial class FrmKurulumEkrani : Form
     {
         List<DataLogger> DataLoggerlar = new List<DataLogger>();
-        string krokiFilePath;
         string path = Application.StartupPath + "\\DataLoggerListesi.xml";
-
+        public DataLoggerListesi dll;
         public FrmKurulumEkrani()
         {
             Icon icon = Icon.ExtractAssociatedIcon(Application.StartupPath + "\\unnamed.ico");
@@ -26,8 +25,26 @@ namespace Arayuz
             initGrid();
             this.gvDataLoggerListesi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gvDataLoggerListesi.CellClick +=gvDataLoggerListesi_CellContentClick;
+            DataLoggerListesi dll = new DataLoggerListesi();
+            GuncelleBtn.Hide();
         }
-
+        public FrmKurulumEkrani(DataLoggerListesi dataLoggerlist)
+        {
+            Icon icon = Icon.ExtractAssociatedIcon(Application.StartupPath + "\\unnamed.ico");
+            this.Icon = icon;
+            dll = dataLoggerlist;
+            InitializeComponent();
+            txtAdress.Text= dll.Adres;
+             txtKurumAdi.Text=dll.KurumAdi;
+            txtMail.Text= dll.Mail;
+            txtSehir.Text=dll.Sehir;
+            button1.Hide();
+            KurulumTamamlaBtn.Hide();
+            groupBox1.Hide();
+            initGrid();
+            this.gvDataLoggerListesi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            gvDataLoggerListesi.CellClick += gvDataLoggerListesi_CellContentClick;
+        }
         private void initGrid()
         {
             gvDataLoggerListesi.Columns.Add("TelNo", "Tel. No");
@@ -75,31 +92,31 @@ namespace Arayuz
         }
         private void XmleYaz()
         {
-            DataLoggerListesi dll = new DataLoggerListesi();
-            dll.DataLoggerlar = DataLoggerlar;
-            dll.AlanBuyuklugu = txtAlanBuyuklugu.Text;
-            dll.KurumAdi = txtKurumAdi.Text;
-            dll.KrokiPath = krokiFilePath;
+           
+
             XmlSerializer serializer = new XmlSerializer(typeof(DataLoggerListesi));
             FileStream fs = new FileStream(path, FileMode.Create);
             serializer.Serialize(fs, dll);
             fs.Close(); 
         }
-
+        void dllOlustur()
+        {
+            dll.DataLoggerlar = DataLoggerlar;
+            dll.Adres = txtAdress.Text;
+            dll.KurumAdi = txtKurumAdi.Text;
+            dll.Mail = txtMail.Text;
+            dll.Sehir = txtSehir.Text;
+        }
         private void button3_Click(object sender, EventArgs e)
         {
+            dllOlustur();
             XmleYaz();
             FrmAnaEkran anaEkran = new FrmAnaEkran();
             anaEkran.Show();
             Hide();
         }
 
-        private void txtAlanBuyuklugu_TextChanged(object sender, EventArgs e)
-        {
-            int alanBuyuklugu;
-            if( int.TryParse(txtAlanBuyuklugu.Text,out alanBuyuklugu))
-                lblSensorIhtiyaci.Text = (alanBuyuklugu / 25).ToString();
-        }
+
 
 
 
@@ -125,11 +142,7 @@ namespace Arayuz
         private void DataLoggerDegistir(DataLogger dl,string Isim, int r)
         {
             DataLoggerlar.Remove(DataLoggerlar.Find(x=>x.Isim==Isim));
-            gvDataLoggerListesi.Rows[r].Cells[0].Tag = dl;
-            gvDataLoggerListesi.Rows[r].Cells["TelNo"].Value = dl.TelefonNumarasi;
-            gvDataLoggerListesi.Rows[r].Cells["DataLoggerAdi"].Value = dl.Isim;
-            gvDataLoggerListesi.Rows[r].Cells["SensorSayisi"].Value = dl.SensorSayisi;
-            gvDataLoggerListesi.Rows[r].Cells["TxtFileName"].Value = dl.TxtPath;
+            DataLoggerKaydet(dl);
 
         }
 
@@ -138,6 +151,17 @@ namespace Arayuz
             //seçilen kroki datalogger krokipath'e eklenecek.
             FileStream fs = new FileStream(path, FileMode.Append);
 
+        }
+
+        private void GuncelleBtn_Click(object sender, EventArgs e)
+        {
+            dll.Adres = txtAdress.Text;
+            dll.KurumAdi = txtKurumAdi.Text;
+            dll.Mail = txtMail.Text;
+            dll.Sehir = txtSehir.Text;
+            XmleYaz();
+            DialogResult = System.Windows.Forms.DialogResult.OK;
+            Close();
         }
       
     }

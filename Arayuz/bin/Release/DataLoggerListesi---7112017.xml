@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<DataLoggerlar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DataLoggerlar>
+    <DataLogger>
+      <DLIsim>Kombi Tarafi</DLIsim>
+      <Konum>0</Konum>
+      <TxtPath>D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release/Kombi Tarafı.txt</TxtPath>
+      <Id>KT</Id>
+      <DLSensorSayisi>2</DLSensorSayisi>
+      <TelefonNumarasi>99999999</TelefonNumarasi>
+      <SonKalibrasyonTarihi>2017-06-03T18:18:32.9974456+03:00</SonKalibrasyonTarihi>
+      <SensorListesi>
+        <Sensor>
+          <SensorIndex>0</SensorIndex>
+          <SensorIsim>1. Sensör</SensorIsim>
+          <_degerler />
+          <Konum />
+        </Sensor>
+        <Sensor>
+          <SensorIndex>1</SensorIndex>
+          <SensorIsim>2. Sensör</SensorIsim>
+          <_degerler />
+          <Konum />
+        </Sensor>
+      </SensorListesi>
+      <TehlikeliUstSicaklik>25</TehlikeliUstSicaklik>
+      <TehlikeliAltSicaklik>15</TehlikeliAltSicaklik>
+      <TehlikeliUstNem>60</TehlikeliUstNem>
+      <TehlikeliAltNem>15</TehlikeliAltNem>
+      <TehlikeliUstSicaklik2>25</TehlikeliUstSicaklik2>
+      <TehlikeliAltSicaklik2>15</TehlikeliAltSicaklik2>
+      <TehlikeliUstNem2>0</TehlikeliUstNem2>
+      <TehlikeliAltNem2>0</TehlikeliAltNem2>
+      <TehlikeliUstSicaklik2>25</TehlikeliUstSicaklik2>
+      <TehlikeliAltSicaklik2>0</TehlikeliAltSicaklik2>
+      <TehlikeliUstNem2>0</TehlikeliUstNem2>
+      <TehlikeliAltNem2>0</TehlikeliAltNem2>
+    </DataLogger>
+    <DataLogger>
+      <DLIsim>Koridor1 Cam Kenarı</DLIsim>
+      <Konum>0</Konum>
+      <TxtPath>D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release/Koridor1 Cam Kenarı.txt</TxtPath>
+      <Id>KOR1CK</Id>
+      <DLSensorSayisi>2</DLSensorSayisi>
+      <TelefonNumarasi>99999999</TelefonNumarasi>
+      <TehlikeliUstSicaklik>25</TehlikeliUstSicaklik>
+      <TehlikeliAltSicaklik>15</TehlikeliAltSicaklik>
+      <TehlikeliUstNem>60</TehlikeliUstNem>
+      <TehlikeliAltNem>25</TehlikeliAltNem>
+      <SonKalibrasyonTarihi>2017-06-03T18:19:18.9250368+03:00</SonKalibrasyonTarihi>
+      <SensorListesi>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>0</SensorIndex>
+          <SensorIsim>Alt Sensör</SensorIsim>
+          <Konum />
+        </Sensor>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>1</SensorIndex>
+          <SensorIsim>Üst Sensör</SensorIsim>
+          <Konum />
+        </Sensor>
+      </SensorListesi>
+    </DataLogger>
+    <DataLogger>
+      <DLIsim>Koridor1 Orta Alan</DLIsim>
+      <Konum>0</Konum>
+      <TxtPath>D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release/Koridor1 Orta Alan.txt</TxtPath>
+      <Id>Kor1OA</Id>
+      <DLSensorSayisi>2</DLSensorSayisi>
+      <TelefonNumarasi>99999999</TelefonNumarasi>
+      <TehlikeliUstSicaklik>25</TehlikeliUstSicaklik>
+      <TehlikeliAltSicaklik>15</TehlikeliAltSicaklik>
+      <TehlikeliUstNem>60</TehlikeliUstNem>
+      <TehlikeliAltNem>25</TehlikeliAltNem>
+      <SonKalibrasyonTarihi>2017-06-03T18:20:07.4872269+03:00</SonKalibrasyonTarihi>
+      <SensorListesi>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>0</SensorIndex>
+          <SensorIsim>Alt Sensör</SensorIsim>
+          <Konum />
+        </Sensor>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>1</SensorIndex>
+          <SensorIsim>Üst Sensör</SensorIsim>
+          <Konum />
+        </Sensor>
+      </SensorListesi>
+    </DataLogger>
+    <DataLogger>
+      <DLIsim>Koridor2</DLIsim>
+      <Konum>0</Konum>
+      <TxtPath>D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release/Koridor2.txt</TxtPath>
+      <Id>Kor2</Id>
+      <DLSensorSayisi>2</DLSensorSayisi>
+      <TelefonNumarasi>99999999</TelefonNumarasi>
+      <TehlikeliUstSicaklik>25</TehlikeliUstSicaklik>
+      <TehlikeliAltSicaklik>15</TehlikeliAltSicaklik>
+      <TehlikeliUstNem>60</TehlikeliUstNem>
+      <TehlikeliAltNem>15</TehlikeliAltNem>
+      <SonKalibrasyonTarihi>2017-06-03T18:20:53.7949898+03:00</SonKalibrasyonTarihi>
+      <SensorListesi>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>0</SensorIndex>
+          <SensorIsim>Alt Sensör</SensorIsim>
+          <Konum />
+        </Sensor>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>1</SensorIndex>
+          <SensorIsim>Ust Sensör</SensorIsim>
+          <Konum />
+        </Sensor>
+      </SensorListesi>
+    </DataLogger>
+    <DataLogger>
+      <DLIsim>Koridor2 Cam Kenarı</DLIsim>
+      <Konum>0</Konum>
+      <TxtPath>D:\Calismalar\Visual Studio Projeler\Projects\EczaneKontrol - 20160811\Arayuz\bin\Release/Koridor2 Cam Kenarı.txt</TxtPath>
+      <Id>KOR2CK</Id>
+      <DLSensorSayisi>2</DLSensorSayisi>
+      <TelefonNumarasi>99999999</TelefonNumarasi>
+      <TehlikeliUstSicaklik>25</TehlikeliUstSicaklik>
+      <TehlikeliAltSicaklik>15</TehlikeliAltSicaklik>
+      <TehlikeliUstNem>60</TehlikeliUstNem>
+      <TehlikeliAltNem>25</TehlikeliAltNem>
+      <SonKalibrasyonTarihi>2017-06-03T18:23:22.2620764+03:00</SonKalibrasyonTarihi>
+      <SensorListesi>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>0</SensorIndex>
+          <SensorIsim>Alt Sensör</SensorIsim>
+          <Konum />
+        </Sensor>
+        <Sensor>
+          <_degerler />
+          <SensorIndex>1</SensorIndex>
+          <SensorIsim>Üst Sensör</SensorIsim>
+          <Konum />
+        </Sensor>
+      </SensorListesi>
+    </DataLogger>
+    <DataLogger>
+      <DLIsim>Koridor2 Orta Alan</DLIsim>
+      <Konum>0</Konum>
+      <TxtPath>D:\git\Net olcer\Arayuz\bin\Release/Koridor2 Orta Alan.txt</TxtPath>
+      <Id>Kor2OA</Id>
+      <DLSensorSayisi>2</DLSensorSayisi>
+      <TelefonNumarasi>99999999</TelefonNumarasi>
+      <SonKalibrasyonTarihi>2017-06-03T18:24:29.2008601+03:00</SonKalibrasyonTarihi>
+      <SensorListesi>
+        <Sensor>
+          <SensorIndex>0</SensorIndex>
+          <SensorIsim>Alt Sensör</SensorIsim>
+          <_degerler />
+          <Konum />
+        </Sensor>
+        <Sensor>
+          <SensorIndex>1</SensorIndex>
+          <SensorIsim>Üst Sensör</SensorIsim>
+          <_degerler />
+          <Konum />
+        </Sensor>
+      </SensorListesi>
+      <TehlikeliUstSicaklik>30</TehlikeliUstSicaklik>
+      <TehlikeliAltSicaklik>15</TehlikeliAltSicaklik>
+      <TehlikeliUstNem>60</TehlikeliUstNem>
+      <TehlikeliAltNem>15</TehlikeliAltNem>
+      <TehlikeliUstSicaklik>30</TehlikeliUstSicaklik>
+      <TehlikeliAltSicaklik>15</TehlikeliAltSicaklik>
+      <TehlikeliUstNem>60</TehlikeliUstNem>
+      <TehlikeliAltNem>15</TehlikeliAltNem>
+      <TehlikeliUstSicaklik2>25</TehlikeliUstSicaklik2>
+      <TehlikeliAltSicaklik2>0</TehlikeliAltSicaklik2>
+      <TehlikeliUstNem2>0</TehlikeliUstNem2>
+      <TehlikeliAltNem2>0</TehlikeliAltNem2>
+    </DataLogger>
+  </DataLoggerlar>
+  <KurumAdi>Mamma Mümessil Ecza Deposu</KurumAdi>
+  <AlanBuyuklugu>250</AlanBuyuklugu>
+</DataLoggerlar>

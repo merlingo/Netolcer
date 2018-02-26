@@ -30,28 +30,10 @@
         {
             this.panel3 = new System.Windows.Forms.Panel();
             this.header = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBoxAltNem = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBoxUstNem = new System.Windows.Forms.TextBox();
-            this.textBoxAltSicaklik = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBoxUstSicaklik = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dateTimeKalibrasyonTarihi = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBoxTelefonNumarasi = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSensor2 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtDLId = new System.Windows.Forms.TextBox();
-            this.txtSensor1 = new System.Windows.Forms.TextBox();
-            this.txtDLAdi = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.textBoxAltNem2 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxUstNem2 = new System.Windows.Forms.TextBox();
@@ -60,8 +42,22 @@
             this.textBoxUstSicaklik2 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.textBoxAltNem = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBoxUstNem = new System.Windows.Forms.TextBox();
+            this.textBoxAltSicaklik = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBoxUstSicaklik = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxTelefonNumarasi = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSensor2 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtSensor1 = new System.Windows.Forms.TextBox();
+            this.txtDLAdi = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -87,16 +83,6 @@
             this.header.TabIndex = 0;
             this.header.Text = "DATA LOGGER EKLE";
             this.header.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(299, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(163, 19);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Cihaz Kimlik Numarası:";
             // 
             // label4
             // 
@@ -128,29 +114,119 @@
             this.groupBox1.Controls.Add(this.textBoxUstSicaklik);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.dateTimeKalibrasyonTarihi);
-            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.textBoxTelefonNumarasi);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtSensor2);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtDLId);
             this.groupBox1.Controls.Add(this.txtSensor1);
             this.groupBox1.Controls.Add(this.txtDLAdi);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.groupBox1.Location = new System.Drawing.Point(12, 73);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(651, 301);
+            this.groupBox1.Size = new System.Drawing.Size(651, 287);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Data Logger Bilgileri";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.label16.Location = new System.Drawing.Point(174, 161);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(60, 19);
+            this.label16.TabIndex = 56;
+            this.label16.Text = "Sıcaklık";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.label15.Location = new System.Drawing.Point(520, 161);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(41, 19);
+            this.label15.TabIndex = 55;
+            this.label15.Text = "Nem";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // textBoxAltNem2
+            // 
+            this.textBoxAltNem2.Location = new System.Drawing.Point(485, 215);
+            this.textBoxAltNem2.Name = "textBoxAltNem2";
+            this.textBoxAltNem2.Size = new System.Drawing.Size(40, 26);
+            this.textBoxAltNem2.TabIndex = 54;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.label10.Location = new System.Drawing.Point(534, 217);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(14, 19);
+            this.label10.TabIndex = 53;
+            this.label10.Text = "-";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // textBoxUstNem2
+            // 
+            this.textBoxUstNem2.Location = new System.Drawing.Point(554, 215);
+            this.textBoxUstNem2.Name = "textBoxUstNem2";
+            this.textBoxUstNem2.Size = new System.Drawing.Size(40, 26);
+            this.textBoxUstNem2.TabIndex = 52;
+            // 
+            // textBoxAltSicaklik2
+            // 
+            this.textBoxAltSicaklik2.Location = new System.Drawing.Point(156, 215);
+            this.textBoxAltSicaklik2.Name = "textBoxAltSicaklik2";
+            this.textBoxAltSicaklik2.Size = new System.Drawing.Size(40, 26);
+            this.textBoxAltSicaklik2.TabIndex = 51;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.label12.Location = new System.Drawing.Point(205, 217);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(14, 19);
+            this.label12.TabIndex = 50;
+            this.label12.Text = "-";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // textBoxUstSicaklik2
+            // 
+            this.textBoxUstSicaklik2.Location = new System.Drawing.Point(225, 215);
+            this.textBoxUstSicaklik2.Name = "textBoxUstSicaklik2";
+            this.textBoxUstSicaklik2.Size = new System.Drawing.Size(40, 26);
+            this.textBoxUstSicaklik2.TabIndex = 49;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.label13.Location = new System.Drawing.Point(404, 217);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(71, 19);
+            this.label13.TabIndex = 48;
+            this.label13.Text = "2.Sensor:";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.label14.Location = new System.Drawing.Point(77, 217);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(71, 19);
+            this.label14.TabIndex = 47;
+            this.label14.Text = "2.Sensor:";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // textBoxAltNem
             // 
-            this.textBoxAltNem.Location = new System.Drawing.Point(502, 205);
+            this.textBoxAltNem.Location = new System.Drawing.Point(485, 183);
             this.textBoxAltNem.Name = "textBoxAltNem";
             this.textBoxAltNem.Size = new System.Drawing.Size(40, 26);
             this.textBoxAltNem.TabIndex = 46;
@@ -159,7 +235,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(551, 207);
+            this.label9.Location = new System.Drawing.Point(534, 185);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(14, 19);
             this.label9.TabIndex = 45;
@@ -168,14 +244,14 @@
             // 
             // textBoxUstNem
             // 
-            this.textBoxUstNem.Location = new System.Drawing.Point(571, 205);
+            this.textBoxUstNem.Location = new System.Drawing.Point(554, 183);
             this.textBoxUstNem.Name = "textBoxUstNem";
             this.textBoxUstNem.Size = new System.Drawing.Size(40, 26);
             this.textBoxUstNem.TabIndex = 44;
             // 
             // textBoxAltSicaklik
             // 
-            this.textBoxAltSicaklik.Location = new System.Drawing.Point(173, 205);
+            this.textBoxAltSicaklik.Location = new System.Drawing.Point(156, 183);
             this.textBoxAltSicaklik.Name = "textBoxAltSicaklik";
             this.textBoxAltSicaklik.Size = new System.Drawing.Size(40, 26);
             this.textBoxAltSicaklik.TabIndex = 43;
@@ -184,7 +260,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(222, 207);
+            this.label11.Location = new System.Drawing.Point(205, 185);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(14, 19);
             this.label11.TabIndex = 39;
@@ -193,7 +269,7 @@
             // 
             // textBoxUstSicaklik
             // 
-            this.textBoxUstSicaklik.Location = new System.Drawing.Point(242, 205);
+            this.textBoxUstSicaklik.Location = new System.Drawing.Point(225, 183);
             this.textBoxUstSicaklik.Name = "textBoxUstSicaklik";
             this.textBoxUstSicaklik.Size = new System.Drawing.Size(40, 26);
             this.textBoxUstSicaklik.TabIndex = 38;
@@ -202,7 +278,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(421, 207);
+            this.label8.Location = new System.Drawing.Point(404, 185);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 19);
             this.label8.TabIndex = 33;
@@ -213,37 +289,18 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(94, 207);
+            this.label3.Location = new System.Drawing.Point(77, 185);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 19);
             this.label3.TabIndex = 31;
             this.label3.Text = "1.Sensor:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // dateTimeKalibrasyonTarihi
-            // 
-            this.dateTimeKalibrasyonTarihi.CalendarFont = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dateTimeKalibrasyonTarihi.Location = new System.Drawing.Point(455, 134);
-            this.dateTimeKalibrasyonTarihi.Name = "dateTimeKalibrasyonTarihi";
-            this.dateTimeKalibrasyonTarihi.Size = new System.Drawing.Size(171, 26);
-            this.dateTimeKalibrasyonTarihi.TabIndex = 29;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(318, 139);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(135, 19);
-            this.label6.TabIndex = 28;
-            this.label6.Text = "Kalibrasyon Tarihi:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(26, 134);
+            this.label7.Location = new System.Drawing.Point(350, 41);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(132, 19);
             this.label7.TabIndex = 26;
@@ -252,9 +309,9 @@
             // 
             // textBoxTelefonNumarasi
             // 
-            this.textBoxTelefonNumarasi.Location = new System.Drawing.Point(173, 132);
+            this.textBoxTelefonNumarasi.Location = new System.Drawing.Point(497, 39);
             this.textBoxTelefonNumarasi.Name = "textBoxTelefonNumarasi";
-            this.textBoxTelefonNumarasi.Size = new System.Drawing.Size(109, 26);
+            this.textBoxTelefonNumarasi.Size = new System.Drawing.Size(114, 26);
             this.textBoxTelefonNumarasi.TabIndex = 25;
             // 
             // label1
@@ -285,13 +342,6 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "1. Sensör Adı:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // txtDLId
-            // 
-            this.txtDLId.Location = new System.Drawing.Point(497, 34);
-            this.txtDLId.Name = "txtDLId";
-            this.txtDLId.Size = new System.Drawing.Size(114, 26);
-            this.txtDLId.TabIndex = 12;
             // 
             // txtSensor1
             // 
@@ -324,100 +374,6 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textBoxAltNem2
-            // 
-            this.textBoxAltNem2.Location = new System.Drawing.Point(502, 237);
-            this.textBoxAltNem2.Name = "textBoxAltNem2";
-            this.textBoxAltNem2.Size = new System.Drawing.Size(40, 26);
-            this.textBoxAltNem2.TabIndex = 54;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(551, 239);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(14, 19);
-            this.label10.TabIndex = 53;
-            this.label10.Text = "-";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // textBoxUstNem2
-            // 
-            this.textBoxUstNem2.Location = new System.Drawing.Point(571, 237);
-            this.textBoxUstNem2.Name = "textBoxUstNem2";
-            this.textBoxUstNem2.Size = new System.Drawing.Size(40, 26);
-            this.textBoxUstNem2.TabIndex = 52;
-            // 
-            // textBoxAltSicaklik2
-            // 
-            this.textBoxAltSicaklik2.Location = new System.Drawing.Point(173, 237);
-            this.textBoxAltSicaklik2.Name = "textBoxAltSicaklik2";
-            this.textBoxAltSicaklik2.Size = new System.Drawing.Size(40, 26);
-            this.textBoxAltSicaklik2.TabIndex = 51;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label12.Location = new System.Drawing.Point(222, 239);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(14, 19);
-            this.label12.TabIndex = 50;
-            this.label12.Text = "-";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // textBoxUstSicaklik2
-            // 
-            this.textBoxUstSicaklik2.Location = new System.Drawing.Point(242, 237);
-            this.textBoxUstSicaklik2.Name = "textBoxUstSicaklik2";
-            this.textBoxUstSicaklik2.Size = new System.Drawing.Size(40, 26);
-            this.textBoxUstSicaklik2.TabIndex = 49;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(421, 239);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(71, 19);
-            this.label13.TabIndex = 48;
-            this.label13.Text = "2.Sensor:";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(94, 239);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(71, 19);
-            this.label14.TabIndex = 47;
-            this.label14.Text = "2.Sensor:";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(537, 183);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(41, 19);
-            this.label15.TabIndex = 55;
-            this.label15.Text = "Nem";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.label16.Location = new System.Drawing.Point(191, 183);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(60, 19);
-            this.label16.TabIndex = 56;
-            this.label16.Text = "Sıcaklık";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // FrmDataLoggerEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,6 +384,7 @@
             this.Controls.Add(this.panel3);
             this.Name = "FrmDataLoggerEkle";
             this.Text = "FrmDataLoggerEkle";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmDataLoggerEkle_FormClosing);
             this.Load += new System.EventHandler(this.FrmDataLoggerEkle_Load);
             this.panel3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -441,19 +398,15 @@
 
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label header;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtDLId;
         private System.Windows.Forms.TextBox txtDLAdi;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSensor1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSensor2;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxTelefonNumarasi;
-        private System.Windows.Forms.DateTimePicker dateTimeKalibrasyonTarihi;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label3;

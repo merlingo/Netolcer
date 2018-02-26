@@ -1,0 +1,10 @@
+Problemler
+1- jmp ve jnz ile ayný fonksiyon içinde farklý kod bloklarýna gidiyor. Onlarýn da içinde gezinmek gerek
+
+Tasarým
+CodesRefsTo ile verilen adresi call eden fonksiyonlar çýkarýlýr. Bu caller functionlarý bulmaya yarar.
+
+blockstack icinde jmp yapýlan yerin adresi ve o fonk un son adresi koyulur. 
+jmp yapýlan bloga gidip gezilir
+blogun sonuna ulaþýlýnca stake bakýlýr eðer stackde eleman varsa oradan gezmeye devam edilir
+stack boþ kaldýðýnda  döngü bitirilir.

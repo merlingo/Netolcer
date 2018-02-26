@@ -12,48 +12,45 @@ namespace Arayuz
 {
     public partial class FrmStatistikler : Form
     {
-        DataLoggerListesi dataLoggerlar;
-        public FrmStatistikler(DataLoggerListesi dll)
+        DataLogger dataLogger;
+        public FrmStatistikler(DataLogger dl)
         {
-            this.dataLoggerlar = dll;
+            this.dataLogger = dl;
             InitializeComponent();
-            foreach (DataLogger dl in dataLoggerlar.DataLoggerlar)
-            {
-                if (dl.Dt == null)
-                    dl.ParsingText();
-            }
+            header.Text = dl.Isim + " - ISTATISTIKLER";
             genelOrtalamalariHesapla();
 
         }
         private void genelOrtalamalariHesapla()
         {
-            NetOlcerBirimi enYuksekSicaklik = dataLoggerlar.EnYuksekSicaklik();
+            NetOlcerBirimi enYuksekSicaklik = dataLogger.EnYuksekSicaklik();
             lblEnyuksekSicaklikDeger.Text = enYuksekSicaklik.Deger.ToString();
             lblEnyuksekSicaklikZaman.Text = enYuksekSicaklik.Zaman.ToString("dd MMMM yyyy HH mm");
             lblEnyuksekSicaklikSensor.Text = enYuksekSicaklik.Sensor;
 
-            NetOlcerBirimi enDusukSicaklik = dataLoggerlar.EnDusukSicaklik();
+            NetOlcerBirimi enDusukSicaklik = dataLogger.EnDusukSicaklik();
             lblEnDusukSicaklikDeger.Text = enDusukSicaklik.Deger.ToString();
             lblEnDusukSicaklikZaman.Text = enDusukSicaklik.Zaman.ToString("dd MMMM yyyy HH mm");
             lblEndusukSicaklikSensor.Text = enDusukSicaklik.Sensor;
 
-            NetOlcerBirimi enYuksekNem = dataLoggerlar.EnYuksekNem();
+            NetOlcerBirimi enYuksekNem = dataLogger.EnYuksekNem();
             lblEnyuksekNemDeger.Text = enYuksekNem.Deger.ToString();
             lblEnyuksekNemZaman.Text = enYuksekNem.Zaman.ToString("dd MMMM yyyy HH mm");
             lblEnyuksekNemSensor.Text = enYuksekNem.Sensor;
 
-            NetOlcerBirimi enDusukNem = dataLoggerlar.EnDusukNem();
+            NetOlcerBirimi enDusukNem = dataLogger.EnDusukNem();
             lblEndusukNemDeger.Text = enDusukNem.Deger.ToString();
             lblEndusukNemZaman.Text = enDusukNem.Zaman.ToString("dd MMMM yyyy HH mm");
             lblEndusukNemsensor.Text = enDusukNem.Sensor;
 
-            lblOrtalamaSicaklik.Text = dataLoggerlar.OrtalamaSicaklik().ToString();
-            lblOrtalamaNem.Text = dataLoggerlar.OrtalamaNem().ToString();
+            lblOrtalamaSicaklik.Text = dataLogger.OrtalamaSicaklik().ToString();
+            lblOrtalamaNem.Text = dataLogger.OrtalamaNem().ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }

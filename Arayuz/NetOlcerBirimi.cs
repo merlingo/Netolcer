@@ -19,6 +19,6 @@ namespace Arayuz
        public override string ToString()
        {
            return "Tip:" + Tip + " Deger" + Deger + " " + Birim + " Zaman:" + Zaman+" Sensor:"+Sensor;
-       }
+       }    
     }
 }

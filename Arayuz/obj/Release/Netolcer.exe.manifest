@@ -79,14 +79,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Netolcer.exe" size="544768">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Netolcer.exe" size="1262080">
       <assemblyIdentity name="Netolcer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+qvbKMVLWmEb1waG5YL90pNsbyfsxMRNRNgjbS/1NFo=</dsig:DigestValue>
+        <dsig:DigestValue>RBXAYX1GNpEPhNsaaWEs6qlkzN/jlgT3q4PwYBBLXHA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

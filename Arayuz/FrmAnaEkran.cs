@@ -18,8 +18,7 @@ namespace Arayuz
     {
         DataLogger datalogger;
         DataLoggerListesi dataLoggerlar;
-
-        string path = Application.StartupPath + "\\DataLoggerListesi.xml";
+        bool minimizedToTray;
         TarihFiltrelemeSecenegi tfc = TarihFiltrelemeSecenegi.TarihAraligi;
         public FrmAnaEkran(string DlName="")
         {
@@ -27,7 +26,7 @@ namespace Arayuz
             {
                 //dlName dataloggerınına sdkarttaki txtfile yuklenir
             }
-            Load += FrmAnaEkran_Load;
+            //Load += FrmAnaEkran_Load;
             Icon icon = Icon.ExtractAssociatedIcon(Application.StartupPath + "\\unnamed.ico");
             this.Icon = icon;
             InitializeComponent();
@@ -45,6 +44,8 @@ namespace Arayuz
             VeriAraliklari.Add(20, "20 dk");
             VeriAraliklari.Add(30, "30 dk");
             VeriAraliklari.Add(60, "1 saat");
+            VeriAraliklari.Add(60*12, "12 saat");
+            VeriAraliklari.Add(60*24, "1 gün");
 
             comboBoxVeriAraligi.DataSource = new BindingSource(VeriAraliklari, null);
             comboBoxVeriAraligi.DisplayMember = "Value";
@@ -62,23 +63,60 @@ namespace Arayuz
 
             trreeViewDataLoggerListesi.MouseDoubleClick += lvDataLoggerListesi_MouseClick;
             trreeViewDataLoggerListesi.NodeMouseClick += treeView1_NodeMouseClick;
-
+            header.Text = " NETÖLÇER - " + dataLoggerlar.KurumAdi;
         }
-        private void FrmAnaEkran_Load(object sender, EventArgs e)
+        protected override void WndProc(ref Message message)
         {
-            float width_ratio = (Screen.PrimaryScreen.Bounds.Width / 1280);
-            float heigh_ratio = (Screen.PrimaryScreen.Bounds.Height / 1000f);
-
-            SizeF scale = new SizeF(width_ratio, heigh_ratio);
-
-            this.Scale(scale);
-
-            //And for font size
-            foreach (Control control in this.Controls)
+            if (message.Msg == SingleInstance.WM_SHOWFIRSTINSTANCE)
             {
-                control.Font = new Font("Times New Roman", control.Font.SizeInPoints * heigh_ratio * width_ratio);
+                ShowWindow();
+            }
+            base.WndProc(ref message);
+        }
+        void MinimizeToTray()
+        {
+            notifyIcon1 = new NotifyIcon();
+            //notifyIcon.Click += new EventHandler(NotifyIconClick);
+            notifyIcon1.DoubleClick += new EventHandler(NotifyIconClick);
+            notifyIcon1.Text = ProgramInfo.AssemblyTitle;
+            notifyIcon1.Visible = true;
+            this.WindowState = FormWindowState.Minimized;
+            this.Hide();
+            minimizedToTray = true;
+        }
+        public void ShowWindow()
+        {
+            if (minimizedToTray)
+            {
+                notifyIcon1.Visible = false;
+                this.Show();
+                this.WindowState = FormWindowState.Normal;
+                minimizedToTray = false;
+            }
+            else
+            {
+                WinApi.ShowToFront(this.Handle);
             }
         }
+        void NotifyIconClick(Object sender, System.EventArgs e)
+        {
+            ShowWindow();
+        }
+        //private void FrmAnaEkran_Load(object sender, EventArgs e)
+        //{
+        //    float width_ratio = (Screen.PrimaryScreen.Bounds.Width / 1280);
+        //    float heigh_ratio = (Screen.PrimaryScreen.Bounds.Height / 1000f);
+
+        //    SizeF scale = new SizeF(width_ratio, heigh_ratio);
+
+        //    this.Scale(scale);
+
+        //    //And for font size
+        //    foreach (Control control in this.Controls)
+        //    {
+        //        control.Font = new Font("Times New Roman", control.Font.SizeInPoints * heigh_ratio * width_ratio);
+        //    }
+        //}
         //private void treeView1_MouseDoubleClick(object sender, MouseEventArgs e)
         //{
         //    TreeNode node = trreeViewDataLoggerListesi.SelectedNode;
@@ -93,29 +131,31 @@ namespace Arayuz
 
         //    }
         //}
+
+        //Seçilen datalogger ekrana yüklenir 
         void treeView1_NodeMouseClick(Object sender, TreeNodeMouseClickEventArgs e)
         {
+            //tek basmada açilir
             TreeNode lvi = e.Node;
             groupBox1.Show();
             DataLogger datalg = (DataLogger)lvi.Tag;
             datalogger = datalg;
-            if (datalg.TxtPath == "")
+            if (! datalg.TxtPath.Equals(""))
             {
-                gvDataLoggerVerileri.Hide();
                 buttonTxtYukle.Show();
-                return;
+                setDataLogger(false);
+                 gvDataLoggerVerileri.Show();
+            
             }
             else
-            {
-                setDataLogger();
-                gvDataLoggerVerileri.Show();
-            }
+                gvDataLoggerVerileri.Hide();
+
         }
         private void lvDataLoggerListesi_MouseClick(object sender, EventArgs e)
         {
             TreeNode lvi = trreeViewDataLoggerListesi.SelectedNode;
             DataLogger datalg = (DataLogger)lvi.Tag;
-            dataLoggerBilgileri(datalg);
+            dataLoggerBilgileriPenceresiniAcma(datalg);
         }
         void listView_Resize(object sender, EventArgs e)
         {
@@ -124,39 +164,55 @@ namespace Arayuz
                 c.Width = ((ListView)sender).Width;
         }
       
-        private void setDataLogger()
+        private void setDataLogger(bool verilerYuklensinmi)
         {
 
             if (datalogger.Dt == null)
             {
                 this.Cursor = Cursors.WaitCursor;
-                datalogger.ParsingText();
+                datalogger.ParsingText(verilerYuklensinmi);
 
             }
+            
             DataTable dt = datalogger.Dt;
-            DateTime minDate;
-            DateTime maxDate;
-            minDate = dt.Rows[0].Field<DateTime>("Tarih");
-            maxDate = dt.Rows[dt.Rows.Count - 1].Field<DateTime>("Tarih");
-            //reset mindate maxdate
-            dateTimePicker1.MinDate = dateTimePicker1.MaxDate = DateTime.Now;
-            dateTimePicker2.MinDate = dateTimePicker2.MaxDate = DateTime.Now;
+            if (dt.Rows.Count > 1)
+            {
+                DateTime minDate;
+                DateTime maxDate;
+                minDate = dt.Rows[0].Field<DateTime>("Tarih");
+                maxDate = dt.Rows[dt.Rows.Count - 1].Field<DateTime>("Tarih");
+                //reset mindate maxdate
+                dateTimePicker1.MinDate = dateTimePicker1.MaxDate = DateTime.Now;
+                dateTimePicker2.MinDate = dateTimePicker2.MaxDate = DateTime.Now;
 
-            dateTimePicker1.MinDate = minDate;
-            dateTimePicker1.MaxDate = maxDate;
-            dateTimePicker2.MinDate = minDate;
-            dateTimePicker2.MaxDate = maxDate;
-            dateTimePicker2.Value = maxDate;
-            dateTimePicker1.Value = minDate;
-            AraliktaOlanAylariComboboxaDoldur( minDate,  maxDate);
-            gvDataLoggerVerileri.DataSource = datalogger.Dt;
-            this.gvDataLoggerVerileri.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            lblIcinEnYuksekCicaklik.Text = datalogger.Isim + " İçin En Yüksek Sıcaklık:";
-            lblIcinEnDusukSicaklik.Text = datalogger.Isim + " İçin En Düşük Sıcaklık:";
-            lblIcinEnYuksekNem.Text = datalogger.Isim + " İçin En Yüksek Nem:";
-            lblIcinEnDusukNem.Text = datalogger.Isim + " İçin En Düşük Nem:";
-            lblIcinOrtalamaSicaklik.Text = datalogger.Isim + " İçin Ortalama Sıcaklık:";
-            lblIcinOrtalamaNem.Text = datalogger.Isim + " İçin Ortalama Nem:";
+                dateTimePicker1.MinDate = minDate;
+                dateTimePicker1.MaxDate = maxDate;
+                dateTimePicker2.MinDate = minDate;
+                dateTimePicker2.MaxDate = maxDate;
+                dateTimePicker2.Value = maxDate;
+                dateTimePicker1.Value = minDate;
+                try
+                {
+                    AraliktaOlanAylariComboboxaDoldur(minDate, maxDate);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Tarih Aralığı hatası: Datalogger usb dosyasında hata var: ilk tarih:" + minDate + " - son tarih:" + maxDate + "\n  " + e.Data + "  " + e.Message);
+                }
+                gvDataLoggerVerileri.DataSource = datalogger.Dt;
+                this.gvDataLoggerVerileri.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dlOrtalamaSicaklik.Text = datalogger.OrtalamaSicaklik().ToString();
+                dlOrtalamaNem.Text = datalogger.OrtalamaNem().ToString();
+                ilkDeger = minDate;
+                sonDeger = maxDate;
+            }
+            groupBox1.Text = datalogger.Isim + " Istatistikleri";
+            //lblIcinEnYuksekCicaklik.Text = datalogger.Isim + " İçin En Yüksek Sıcaklık:";
+            //lblIcinEnDusukSicaklik.Text = datalogger.Isim + " İçin En Düşük Sıcaklık:";
+            //lblIcinEnYuksekNem.Text = datalogger.Isim + " İçin En Yüksek Nem:";
+            //lblIcinEnDusukNem.Text = datalogger.Isim + " İçin En Düşük Nem:";
+            //lblIcinOrtalamaSicaklik.Text = datalogger.Isim + " İçin Ortalama Sıcaklık:";
+            //lblIcinOrtalamaNem.Text = datalogger.Isim + " İçin Ortalama Nem:";
 
             //sensor adlari yaz
             labelSensor1.Text = datalogger.SensorListesi[0].Isim;
@@ -178,8 +234,7 @@ namespace Arayuz
             dlTehlikeliYuksekNemDeger2.Text = datalogger.TehlikeliUstNem2.ToString();
 
             dlTehlikeliDusukNemDeger2.Text = datalogger.TehlikeliAltNem2.ToString();
-            dlOrtalamaSicaklik.Text = datalogger.OrtalamaSicaklik().ToString();
-            dlOrtalamaNem.Text = datalogger.OrtalamaNem().ToString();
+           
             this.Refresh();
             this.Cursor = Cursors.Default;
 
@@ -189,20 +244,32 @@ namespace Arayuz
        
         }
 
-        public void loadXml()
+        public void loadXml()  
         {
             //dataLoggerlar objesi doldurulur
 
             XmlSerializer serializer = new XmlSerializer(typeof(DataLoggerListesi));
-            StreamReader reader = new StreamReader(path);
+            StreamReader reader = new StreamReader(ConstantValues.path);
             dataLoggerlar = (DataLoggerListesi)serializer.Deserialize(reader);
+            List<Task> tasks=new List<Task>();
+
+            foreach (DataLogger dl in dataLoggerlar.DataLoggerlar)
+            {
+                if(dl.TxtPath.Count()>1)
+                    tasks.Add(Task.Factory.StartNew(() => dl.VerileriDosyadanYukle()));
+            }
             reader.Close();
-            
+            if(tasks.Count>0)
+                Task.WaitAll(tasks.ToArray());
         }
+        /// <summary>
+        /// listView'e datalogger ekleme fonksiyonudur.
+        /// Exp: Eğer datalogger'ın sensörListesi boş (null) ise, hata çıkar. dl yapisi bozuk ya da eksik bilgi iceriyorsa hata cikmasa da doğru calismaz
+        /// </summary>
+        /// <param name="dl">eklenecek datalogger</param>
         private void DataLoggerListeyeEkle(DataLogger dl)
         {
             TreeNode treeNode;
-
             TreeNode node2 = new TreeNode(dl.SensorListesi[0].Isim);
             TreeNode node3 = new TreeNode(dl.SensorListesi[1].Isim);
             TreeNode[] array = new TreeNode[] { node2, node3 };
@@ -231,39 +298,7 @@ namespace Arayuz
         }
       
        
-        private void xlCiktiButton_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog comDialog = new SaveFileDialog();
-            comDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            comDialog.FileName = datalogger.Isim+".xlsx";
-
-            comDialog.Filter = "excell files (*.xlsx)|*.xlsx";
-            if (comDialog.ShowDialog() == DialogResult.OK)
-            {
-                FileStream fs = (FileStream)comDialog.OpenFile();
-                DataTable filtrelenmisTable = (DataTable)(gvDataLoggerVerileri.DataSource);
-                try
-                {
-                    this.Cursor = Cursors.WaitCursor;
-                    InputBox.ExportToExcel(filtrelenmisTable, fs.Name);
-                }
-                catch (Exception ex)
-                {
-                    if (ex.Message.Contains("not be saved!"))
-                        MessageBox.Show("Excel dosyasına değerler kayıt edilememiştir! Eğer Excell dosyası açıksa lütfen kapatınız.");
-                    else if (ex.Message.Contains("exExportToExcel: Null or empty input table!"))
-                        MessageBox.Show("Veriler bulunamadı!");
-                    else if (ex.Message.Contains("HRESULT özel durum döndürdü: 0x80040154"))
-                        MessageBox.Show("Microsoft Office yüklü olmalıdır.");
-                }
-                finally
-                {
-                    this.Cursor = Cursors.Default;
-                }
-            }
-
-        }
-
+       
         DateTime ilkDeger ;
         DateTime sonDeger ;
         private void FiltreButton_Click(object sender, EventArgs e)
@@ -286,7 +321,7 @@ namespace Arayuz
             // iki deger alınır, ilki oteksiinden büyük degilse hata
             if (ilkDeger > sonDeger)
             {
-                MessageBox.Show("İLK TARİH DAHA KÜÇÜK OLMALIDIR", "UYARI");
+                MessageBox.Show("Başlangıç zamanı"+ilkDeger.ToShortTimeString()+"- Bitiş zmanı:"+sonDeger.ToShortDateString() +" --  HATA: İLK TARİH DAHA KÜÇÜK OLMALIDIR", "UYARI");
                 return;
             }
             //kullanıcı kayıtlı olan son ve ilk tarihten ötesini seçememeli
@@ -317,7 +352,26 @@ namespace Arayuz
                         datarows.Add(row);
                     }
                 }
-                else {
+                else if (aralik == 60*12)
+                {
+                    if (rowDate == aralikBasi || (rowDate - aralikBasi).Hours >= 12)
+                    {
+                        aralikBasi = rowDate;
+
+                        datarows.Add(row);
+                    }
+                }
+                else if (aralik == 60 * 24)
+                {
+                    if (rowDate == aralikBasi || (rowDate - aralikBasi).Days >= 1)
+                    {
+                        aralikBasi = rowDate;
+
+                        datarows.Add(row);
+                    }
+                }
+                else
+                {
                     if (rowDate == aralikBasi || (rowDate - aralikBasi).Minutes >= aralik)
                     {
                         aralikBasi = rowDate;
@@ -343,7 +397,11 @@ namespace Arayuz
             //FrmPdfCikti pdfCikti = new FrmPdfCikti(dataLoggerlar);
             //pdfCikti.ShowDialog();
 
-
+            if (gvDataLoggerVerileri.DataSource == null)
+            {
+                MessageBox.Show("pdf dosyasına dökülecek veri yok. Lütfen verileri yükleyiniz");
+                return;
+            }
             // seçili datalogger ve tabloda olan değerler kullanılarak pdf oluşturulur. genel istatistikler olmaz sadece datalogger istatistikleri olur
             //seçilen ayarlar ile pdf dokumanı oluşturulacak.
             SaveFileDialog comDialog = new SaveFileDialog();
@@ -365,20 +423,22 @@ namespace Arayuz
                     options.GenelIstatistiklerVarmi = false;
                     options.DataLoggerGrafiklerVarmi = true;
                     options.DataLoggerIstatistiklerVarmi = true;
-                    options.DataLoggerSonKalibrasyonTarihleriVarmi = true;
+                    options.DataLoggerSonKalibrasyonTarihleriVarmi = false;
                     double x = (double)comboBoxVeriAraligi.SelectedValue;
                     options.VeriAraligi = x;
                     options.CiktiIcinDataLoggerlar.Add(new CiktiDataLoggerItem(datalogger));
+                    options.HedeflenenOrtamKosullari = "\n" + datalogger.SensorListesi[0].Isim + ": " + dlTehlikeliDusukSicaklikDeger.Text + "(ºC) - " + dlTehlikeliYuksekSicaklikDeger.Text + "(ºC) , " + dlTehlikeliDusukNemDeger.Text + "(%) - " + dlTehlikeliYuksekNemDeger.Text+" (%)"+
+                                                       "\n" + datalogger.SensorListesi[1].Isim + ": " + dlTehlikeliDusukSicaklikDeger2.Text + "(ºC) - " + dlTehlikeliYuksekSicaklikDeger2.Text + "(ºC) , " + dlTehlikeliDusukNemDeger2.Text + "(%) - " + dlTehlikeliYuksekNemDeger2.Text + " (%)";//"17(ºC) -23(ºC) , 15(ºC) -25(ºC)" 
                     CıktıAl cikti = new CıktıAl(options, dataLoggerlar);
                     
                     cikti.createPdf(fs,ilkDeger,sonDeger);
-                    this.Cursor = Cursors.Default;
-                    MessageBox.Show("Rapor alma işlemi tamamlanmıştır");
-                    Process.Start(fs.Name);
+                        this.Cursor = Cursors.Default;
+                        MessageBox.Show("Rapor alma işlemi tamamlanmıştır");
+                        Process.Start(fs.Name);
                 }
-                catch
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Pdf oluşturulamadı!!");
+                    MessageBox.Show("Pdf oluşturulamadı!!" + ex.Message);
                 }
                 finally
                 {
@@ -397,7 +457,11 @@ namespace Arayuz
             //}
             //else
             //    MessageBox.Show("İstatistikleri görebilmeniz için veri yüklemeniz gerekmektedir.");
-
+            if (gvDataLoggerVerileri.DataSource == null)
+            {
+                MessageBox.Show("grafiğe dökülecek veri yok. Lütfen verileri yükleyiniz");
+                return;
+            }
             FrmTekDLGrafik tekDlGrafik = new FrmTekDLGrafik(datalogger, ilkDeger, sonDeger);
             tekDlGrafik.ShowDialog();
         }
@@ -408,148 +472,32 @@ namespace Arayuz
             dle.ShowDialog();
             if (dle.DialogResult == DialogResult.OK)
             {
-                dataLoggerlar.DataLoggerlar.Add(dle.dl);
-                xmleDataLoggerEkle(dle.dl);
+                //dataLoggerlar.DataLoggerlar.Add(dle.dl);
+                XmlHelper.xmleDataLoggerEkle(dataLoggerlar, dle.dl);
+                DataLoggerListeyeEkle(dle.dl);
+
             }
         }
 
-        void xmleDataLoggerEkle(DataLogger dl)
+       
+       
+        int indexBul(string name)
         {
-            XmlDocument xml = new XmlDocument();
-            xml.Load(path);
-            StringWriter sww = new StringWriter();
-            using (XmlWriter writer = XmlWriter.Create(sww))
+            foreach (TreeNode n in trreeViewDataLoggerListesi.Nodes)
             {
-                System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(dl.GetType());
-                x.Serialize(writer, dl);
-                XmlDocumentFragment fragment = xml.CreateDocumentFragment();
-                string str = sww.ToString();
-                fragment.InnerXml = str.Replace("<?xml version=\"1.0\" encoding=\"utf-16\"?>","").Replace("xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"","");
-                xml.DocumentElement.FirstChild.AppendChild(fragment);
-                xml.Save(path);
-                dataLoggerlar.DataLoggerlar.Add(dl);
-                DataLoggerListeyeEkle(dl);
-               
+                if (n.Text == name)
+                    return n.Index;
+                
             }
+            throw new Exception("girilen dt treeviewde bulunamadı");
         }
-        void xmlDataLoggerGuncelle(DataLogger dl,string ad)
+        void treeViewGuncelle(DataLogger dl,string ad)
         {
+                                //treeview güncelleme
+                   // dataLoggerlar = null;
+                   // loadXml();
 
-            XmlDocument xml = new XmlDocument();
-            xml.Load(path);
-            XmlNodeList elements = xml.SelectNodes("//DataLoggerlar//DataLoggerlar");
-            foreach (XmlNode element in elements.Item(0))
-            {
-                if (element.InnerXml.Contains(ad))
-                {
-                    XmlElement xlDlIsim =  xml.CreateElement("DLIsim");
-                    xlDlIsim.InnerText =dl.Isim;
-                    element.ReplaceChild(xlDlIsim, element.ChildNodes.Item(0));
-
-                    XmlElement xlKonum = xml.CreateElement("Konum");
-                    xlKonum.InnerText = dl.Konum.ToString();
-                    element.ReplaceChild(xlKonum, element.ChildNodes.Item(1));
-
-                    XmlElement xTxtPath = xml.CreateElement("TxtPath");
-                    xTxtPath.InnerText = dl.TxtPath;
-                    element.ReplaceChild(xTxtPath, element.ChildNodes.Item(2));
-
-                    XmlElement xlId = xml.CreateElement("Id");
-                    xlId.InnerText = dl.Id;
-                    element.ReplaceChild(xlId, element.ChildNodes.Item(3));
-
-                    XmlElement xlDLSensorSayisi = xml.CreateElement("DLSensorSayisi");
-                    xlDLSensorSayisi.InnerText = dl.SensorSayisi.ToString();
-                    element.ReplaceChild(xlDLSensorSayisi, element.ChildNodes.Item(4));
-
-                    XmlElement xlTelefonNumarasi = xml.CreateElement("TelefonNumarasi");
-                    xlTelefonNumarasi.InnerText = dl.TelefonNumarasi;
-                    element.ReplaceChild(xlTelefonNumarasi, element.ChildNodes.Item(5));
-
-
-                    XmlElement xlSonKalibrasyonTarihi = xml.CreateElement("SonKalibrasyonTarihi");
-                    xlSonKalibrasyonTarihi.InnerText = dl.SonKalibrasyonTarihi.ToString("o");
-                    element.ReplaceChild(xlSonKalibrasyonTarihi, element.ChildNodes.Item(6));
-
-                    XmlElement xlTehlikeliUstSicaklik = xml.CreateElement("TehlikeliUstSicaklik");
-                    xlTehlikeliUstSicaklik.InnerText = dl.TehlikeliUstSicaklik.ToString();
-
-                    XmlElement xlTehlikeliAltSicaklik = xml.CreateElement("TehlikeliAltSicaklik");
-                    xlTehlikeliAltSicaklik.InnerText = dl.TehlikeliAltSicaklik.ToString();
-
-                    XmlElement xlTehlikeliUstNem = xml.CreateElement("TehlikeliUstNem");
-                    xlTehlikeliUstNem.InnerText = dl.TehlikeliUstNem.ToString();
-
-                    XmlElement xlTehlikeliAltNem = xml.CreateElement("TehlikeliAltNem");
-                    xlTehlikeliAltNem.InnerText = dl.TehlikeliAltNem.ToString();
-
-                    XmlElement xlTehlikeliUstSicaklik2 = xml.CreateElement("TehlikeliUstSicaklik2");
-                    xlTehlikeliUstSicaklik2.InnerText = dl.TehlikeliUstSicaklik2.ToString();
-
-                    XmlElement xlTehlikeliAltSicaklik2 = xml.CreateElement("TehlikeliAltSicaklik2");
-                    xlTehlikeliAltSicaklik2.InnerText = dl.TehlikeliAltSicaklik2.ToString();
-
-                    XmlElement xlTehlikeliUstNem2 = xml.CreateElement("TehlikeliUstNem2");
-                    xlTehlikeliUstNem2.InnerText = dl.TehlikeliUstNem2.ToString();
-
-                    XmlElement xlTehlikeliAltNem2 = xml.CreateElement("TehlikeliAltNem2");
-                    xlTehlikeliAltNem2.InnerText = dl.TehlikeliAltNem2.ToString();
-                    if (element.ChildNodes.Count <= 12)
-                    {
-                        element.AppendChild(xlTehlikeliUstSicaklik);
-                        element.AppendChild(xlTehlikeliAltSicaklik);
-                        element.AppendChild(xlTehlikeliUstNem);
-                        element.AppendChild(xlTehlikeliAltNem);
-                        element.AppendChild(xlTehlikeliUstSicaklik2);
-                        element.AppendChild(xlTehlikeliAltSicaklik2);
-                        element.AppendChild(xlTehlikeliUstNem2);
-                        element.AppendChild(xlTehlikeliAltNem2);
-                    }
-                    else
-                    {
-                        element.ReplaceChild(xlTehlikeliUstSicaklik, element.ChildNodes.Item(8));
-                        element.ReplaceChild(xlTehlikeliAltSicaklik, element.ChildNodes.Item(9));
-                        element.ReplaceChild(xlTehlikeliUstNem, element.ChildNodes.Item(10));
-                        element.ReplaceChild(xlTehlikeliAltNem, element.ChildNodes.Item(11));
-                        element.ReplaceChild(xlTehlikeliUstSicaklik2, element.ChildNodes.Item(12));
-                        element.ReplaceChild(xlTehlikeliAltSicaklik2, element.ChildNodes.Item(13));
-                        element.ReplaceChild(xlTehlikeliUstNem2, element.ChildNodes.Item(14));
-                        element.ReplaceChild(xlTehlikeliAltNem2, element.ChildNodes.Item(15));
-                    }
-                   
-
-
-                    XmlElement xlSensorListesi = xml.CreateElement("SensorListesi");
-                    XmlElement xlSensor1 = xml.CreateElement("Sensor");
-                    XmlElement xlSensorIndex = xml.CreateElement("SensorIndex");
-                    xlSensorIndex.InnerText = datalogger.SensorListesi[0].Index.ToString();
-                    xlSensor1.AppendChild(xlSensorIndex);
-                    XmlElement xlSensorIsim = xml.CreateElement("SensorIsim");
-                    xlSensorIsim.InnerText = datalogger.SensorListesi[0].Isim;
-                    xlSensor1.AppendChild(xlSensorIsim);
-                    xlSensor1.AppendChild(xml.CreateElement("_degerler"));
-                    xlSensor1.AppendChild(xml.CreateElement("Konum"));
-                    xlSensorListesi.AppendChild(xlSensor1);
-
-                    XmlElement xlSensor2 = xml.CreateElement("Sensor");
-                    XmlElement xlSensorIndex2 = xml.CreateElement("SensorIndex");
-                    xlSensorIndex2.InnerText = datalogger.SensorListesi[1].Index.ToString();
-                    xlSensor2.AppendChild(xlSensorIndex2);
-                    XmlElement xlSensorIsim2 = xml.CreateElement("SensorIsim");
-                    xlSensorIsim2.InnerText = datalogger.SensorListesi[1].Isim;
-                    xlSensor2.AppendChild(xlSensorIsim2);
-                    xlSensor2.AppendChild(xml.CreateElement("_degerler"));
-                    xlSensor2.AppendChild(xml.CreateElement("Konum"));
-                    xlSensorListesi.AppendChild(xlSensor2);
-
-                    element.ReplaceChild(xlSensorListesi, element.ChildNodes.Item(7));
-                    xml.Save(path);
-
-                    //treeview güncelleme
-                    dataLoggerlar = null;
-                    loadXml();
-                    
-                    int indDl =indexBul(ad);
+                    int indDl = indexBul(ad);
                     TreeNode treeNode;
 
                     TreeNode node2 = new TreeNode(dl.SensorListesi[0].Isim);
@@ -563,31 +511,16 @@ namespace Arayuz
                     treeNode.Text = dl.Isim;
                     treeNode.Tag = dl;
                     trreeViewDataLoggerListesi.Nodes[indDl].Remove();
-                    trreeViewDataLoggerListesi.Nodes.Insert( indDl, treeNode);
-                    dl.ParsingText();
+                    trreeViewDataLoggerListesi.Nodes.Insert(indDl, treeNode);
+                    dl.ParsingText(false);
                     datalogger = dl;
-                    setDataLogger();
-                    break;
-                }
-            }
-
-
-        }
-        int indexBul(string name)
-        {
-            foreach (TreeNode n in trreeViewDataLoggerListesi.Nodes)
-            {
-                if (n.Text == name)
-                    return n.Index;
-                
-            }
-            throw new Exception("girilen dt treeviewde bulunamadı");
+                    setDataLogger(false);
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            dataLoggerBilgileri(datalogger);
+            dataLoggerBilgileriPenceresiniAcma(datalogger);
         }
-        public void dataLoggerBilgileri(DataLogger dt)
+        public void dataLoggerBilgileriPenceresiniAcma(DataLogger dt)
         {
             //seçilen datalogger için frmKurulumEkrani ni açmak gerekir.
             if (dt == null)
@@ -599,8 +532,10 @@ namespace Arayuz
             FrmDataLoggerEkle fdle = new FrmDataLoggerEkle(dt);
             DialogResult dr = fdle.ShowDialog();
             if (DialogResult.OK == dr)
-                xmlDataLoggerGuncelle(dt, dlisim);
-           
+            {
+                XmlHelper.xmlDataLoggerGuncelle(dt, dlisim);
+                treeViewGuncelle(dt, dlisim);
+            }
 
         }
 
@@ -617,19 +552,25 @@ namespace Arayuz
             if (fs.ShowDialog() == DialogResult.OK)
             {
                 txtpath = Application.StartupPath + "/" + datalogger.Isim + ".txt";
-                TxtDosyayiKlasoreKopyala(fs.FileName,txtpath);
-                setDataLogger();
+                TxtDosyayiKlasoreKopyalaveXmleEkle(fs.FileName,txtpath);
+                setDataLogger(true);
                 gvDataLoggerVerileri.Show();
 
                
               
             }
         }
-        public void TxtDosyayiKlasoreKopyala(string kopyalananFileName,string txtpath)
+        public void TxtDosyayiKlasoreKopyalaveXmleEkle(string kopyalananFileName,string txtpath)
         {
             //1-dosyaların durduğu klasöre kopyalanır
+            //Eski .txt dosyayı yedekle ve yedekte olanı açmak için arayüz ekle
             if (File.Exists(txtpath))
-                File.Delete(txtpath);
+            {
+                //File.Delete(txtpath);
+                //varolan dosyanın adını değiştirme
+                string yenitxt = txtpath.Split('.')[0] + "_" + DateTime.Now.Ticks + ".txt";
+                File.Move(txtpath, yenitxt);
+            }
             File.Copy(kopyalananFileName, txtpath);
 
             datalogger.TxtPath = txtpath;
@@ -643,7 +584,7 @@ namespace Arayuz
             }
             //2- xml verisi olarak eklenir
             XmlDocument xml = new XmlDocument();
-            xml.Load(path);
+            xml.Load(ConstantValues.path);
             XmlNodeList elements = xml.SelectNodes("//DataLoggerlar//DataLoggerlar");
             foreach (XmlNode element in elements.Item(0))
             {
@@ -652,7 +593,7 @@ namespace Arayuz
                     XmlElement xTxtPath = xml.CreateElement("TxtPath");
                     xTxtPath.InnerText = datalogger.TxtPath;
                     element.ReplaceChild(xTxtPath, element.ChildNodes.Item(2));
-                    xml.Save(path);
+                    xml.Save(ConstantValues.path);
                     datalogger.Dt = null;
                     datalogger.SensorListesi[0]._degerler = new List<NetOlcerBirimi>();
                     datalogger.SensorListesi[1]._degerler = new List<NetOlcerBirimi>();
@@ -663,12 +604,18 @@ namespace Arayuz
         }
         private void button5_Click(object sender, EventArgs e)
         {
-            if (dataLoggerlar.DataLoggerlar.Any(x => x.TxtPath == ""))
+            if (gvDataLoggerVerileri.DataSource == null)
             {
-                MessageBox.Show("Verileri yüklenmemiş dataloggerlar bulunmaktadır. Genel istatistikselleri görebilmeniz için tüm dataloggerlar için veriler yüklenmesi gerekir.");
+                MessageBox.Show("istatisliğe dökülecek veri yok. Lütfen verileri yükleyiniz");
                 return;
             }
-            FrmStatistikler frmIstatistik = new FrmStatistikler(dataLoggerlar);
+            if (datalogger.Dt ==null)
+            {
+                MessageBox.Show("istatisliğe dökülecek veri yok. Lütfen verileri yükleyiniz");
+                return;
+            }
+            //sadece seçili dl nin istatistiği gösterilecek
+            FrmStatistikler frmIstatistik = new FrmStatistikler(datalogger);
             frmIstatistik.ShowDialog();
 
         }
@@ -691,7 +638,7 @@ namespace Arayuz
         private void xmlDataLoggerSil(DataLogger datalogger)
         {
              XmlDocument xml = new XmlDocument();
-                xml.Load(path);
+             xml.Load(ConstantValues.path);
                 XmlNodeList elements = xml.SelectNodes("//DataLoggerlar//DataLoggerlar");
                 foreach (XmlNode element in elements.Item(0))
                 {
@@ -701,7 +648,7 @@ namespace Arayuz
                         int indDl = indexBul(datalogger.Isim);
                         trreeViewDataLoggerListesi.Nodes[indDl].Remove();
                         dataLoggerlar.DataLoggerlar.Remove(datalogger);
-                        xml.Save(path);
+                        xml.Save(ConstantValues.path);
                         break;
                     }
                 }
@@ -722,7 +669,9 @@ namespace Arayuz
             {
                 //xml dosyasını değiştireceğiz
                 datalogger.TehlikeliUstSicaklik = td.tehlikeliDeger;
-                xmlDataLoggerGuncelle(datalogger, datalogger.Isim);
+                XmlHelper.xmlDataLoggerGuncelle(datalogger, datalogger.Isim);
+                dlTehlikeliYuksekSicaklikDeger.Text = td.tehlikeliDeger.ToString();
+                this.Refresh();
             }
         }
 
@@ -734,7 +683,10 @@ namespace Arayuz
             {
                 //xml dosyasını değiştireceğiz
                 datalogger.TehlikeliAltSicaklik = td.tehlikeliDeger;
-                xmlDataLoggerGuncelle(datalogger, datalogger.Isim);
+                XmlHelper.xmlDataLoggerGuncelle(datalogger, datalogger.Isim);
+                //treeViewGuncelle(datalogger, datalogger.Isim);
+                dlTehlikeliDusukSicaklikDeger.Text = td.tehlikeliDeger.ToString();
+                this.Refresh();
             }
         }
 
@@ -746,7 +698,10 @@ namespace Arayuz
             {
                 //xml dosyasını değiştireceğiz
                 datalogger.TehlikeliUstNem = td.tehlikeliDeger;
-                xmlDataLoggerGuncelle(datalogger, datalogger.Isim);
+                XmlHelper.xmlDataLoggerGuncelle(datalogger, datalogger.Isim);
+               // treeViewGuncelle(datalogger, datalogger.Isim);
+                dlTehlikeliYuksekNemDeger.Text = datalogger.TehlikeliUstNem.ToString();
+                this.Refresh();
             }
         }
         private void dlTehlikeliYuksekSicaklikDeger2_Click(object sender, EventArgs e)
@@ -758,7 +713,9 @@ namespace Arayuz
             {
                 //xml dosyasını değiştireceğiz
                 datalogger.TehlikeliUstSicaklik2 = td.tehlikeliDeger;
-                xmlDataLoggerGuncelle(datalogger, datalogger.Isim);
+                XmlHelper.xmlDataLoggerGuncelle(datalogger, datalogger.Isim);
+                dlTehlikeliYuksekSicaklikDeger2.Text = td.tehlikeliDeger.ToString();
+                this.Refresh();
             }
         }
 
@@ -770,7 +727,9 @@ namespace Arayuz
             {
                 //xml dosyasını değiştireceğiz
                 datalogger.TehlikeliAltSicaklik2 = td.tehlikeliDeger;
-                xmlDataLoggerGuncelle(datalogger, datalogger.Isim);
+                XmlHelper.xmlDataLoggerGuncelle(datalogger, datalogger.Isim);
+                dlTehlikeliDusukSicaklikDeger2.Text = td.tehlikeliDeger.ToString();
+                this.Refresh();
             }
         }
 
@@ -782,7 +741,9 @@ namespace Arayuz
             {
                 //xml dosyasını değiştireceğiz
                 datalogger.TehlikeliUstNem2 = td.tehlikeliDeger;
-                xmlDataLoggerGuncelle(datalogger, datalogger.Isim);
+                XmlHelper.xmlDataLoggerGuncelle(datalogger, datalogger.Isim);
+                dlTehlikeliYuksekNemDeger2.Text = td.tehlikeliDeger.ToString();
+                this.Refresh();
             }
         }
 
@@ -794,7 +755,9 @@ namespace Arayuz
             {
                 //xml dosyasını değiştireceğiz
                 datalogger.TehlikeliAltNem2 = td.tehlikeliDeger;
-                xmlDataLoggerGuncelle(datalogger, datalogger.Isim);
+                XmlHelper.xmlDataLoggerGuncelle(datalogger, datalogger.Isim);
+                dlTehlikeliDusukNemDeger2.Text = td.tehlikeliDeger.ToString();
+                this.Refresh();
             }
         }
         private void dlTehlikeliDusukNemDeger_Click(object sender, EventArgs e)
@@ -805,7 +768,10 @@ namespace Arayuz
             {
                 //xml dosyasını değiştireceğiz
                 datalogger.TehlikeliAltNem = td.tehlikeliDeger;
-                xmlDataLoggerGuncelle(datalogger, datalogger.Isim);
+                XmlHelper.xmlDataLoggerGuncelle(datalogger, datalogger.Isim);
+                treeViewGuncelle(datalogger, datalogger.Isim);
+                dlTehlikeliDusukNemDeger.Text = td.tehlikeliDeger.ToString();
+                this.Refresh();
             }
         }
 
@@ -834,14 +800,25 @@ namespace Arayuz
             }
         }
 
-       
+        private void gösterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Show();
+           // notifyIcon1.Visible = false;
+        }
+
+        private void çıkışToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.ExitThread();
+        }
+
         void AraliktaOlanAylariComboboxaDoldur(DateTime mindate, DateTime maxdate)
         {
             int month = mindate.Month;
             int year = mindate.Year;
             DateTime aylikDate = new DateTime(mindate.Year, month, 1) ;
             Dictionary<DateTime, string> Aylar = new Dictionary<DateTime, string>();
-
+            if (!(maxdate < DateTime.MaxValue))
+                throw new Exception("Geçersiz maximum tarih");
             do
             {
                 Aylar.Add(aylikDate, yaziIleAy(month) + ", " + year.ToString());
@@ -855,7 +832,7 @@ namespace Arayuz
                     month++;
                 }
                 aylikDate = aylikDate.AddMonths(1);
-            } while (!(month == maxdate.Month && year == maxdate.Year));
+            } while (!(month >= maxdate.Month && year >= maxdate.Year));
             Aylar.Add(aylikDate, yaziIleAy(month) + ", " + year.ToString());
             comboBox1.DataSource = new BindingSource(Aylar, null);
 
@@ -889,8 +866,29 @@ namespace Arayuz
             else throw new Exception("Ay 12den büyük olamaz");
         }
 
-       
+        private void açToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Show();
+            notifyIcon1.Visible = false;
+        }
 
+        private void çıkışToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Application.ExitThread();
+
+        }
+
+        private void header_Click(object sender, EventArgs e)
+        {
+            FrmKurulumEkrani kurulumForm = new FrmKurulumEkrani(dataLoggerlar);
+            if (DialogResult.OK == kurulumForm.ShowDialog())
+            {
+                dataLoggerlar = kurulumForm.dll;
+                header.Text = " NETÖLÇER - " + dataLoggerlar.KurumAdi;
+            }
+        }
+
+       
         
     }
     public enum TarihFiltrelemeSecenegi

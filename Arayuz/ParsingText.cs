@@ -74,9 +74,17 @@ namespace Arayuz
 
                             try
                             {
+                                if (parcalar[4].Length <= 1)
+                                    continue;
+                                for(int k=1;k<=4;k++)
+                                    if (parcalar[k].Split(' ')[0].Trim().StartsWith("0"))
+                                        {
+                                            parcalar[k] = parcalar[k].Split(' ')[0].Replace('0',' ');       
+                                        }
 
                                 satirList.Add(new ParcalaOge
                                 {
+                                    
                                     isi1 = float.Parse(parcalar[1].Split(' ')[0].Replace('.', ',')),
                                     isi2 = float.Parse(parcalar[3].Split(' ')[0].Replace('.', ',')),
                                     NemSensör1 = float.Parse(parcalar[2].Split(' ')[0].Replace('.', ',')),

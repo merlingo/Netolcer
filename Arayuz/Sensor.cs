@@ -11,6 +11,7 @@ namespace Arayuz
    [XmlType("Sensor")]
    public  class Sensor
     {
+       [System.Xml.Serialization.XmlIgnore]
        public List<NetOlcerBirimi> _degerler = new List<NetOlcerBirimi>();
         //[XmlArray("Degerler")]
         //public List<NetOlcerBirimi> Degerler

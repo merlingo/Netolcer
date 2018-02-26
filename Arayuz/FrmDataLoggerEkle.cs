@@ -29,8 +29,6 @@ namespace Arayuz
             InitializeComponent();
             this.dl = dl1;
            txtDLAdi.Text  =  dl.Isim ;
-            txtDLId.Text= dl.Id ;
-            dateTimeKalibrasyonTarihi.Value =dl.SonKalibrasyonTarihi;
             txtSensor1.Text = dl.SensorListesi[0].Isim;
             txtSensor2.Text = dl.SensorListesi[1].Isim;
             textBoxTelefonNumarasi.Text = dl.TelefonNumarasi;
@@ -52,25 +50,38 @@ namespace Arayuz
            
            // 05465864441 erdal
         }
-      
-        private void button2_Click(object sender, EventArgs e)
+
+         void FrmDataLoggerEkle_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (txtDLAdi.Text == "" || txtDLId.Text == "" || txtSensor1.Text == "" || txtSensor2.Text == "" || textBoxTelefonNumarasi.Text == "" || txtDLId.Text =="")
+            if (e.CloseReason == CloseReason.UserClosing)
+            { // Autosave and clear up ressources
+                MessageBox.Show("carpi butonundan kapandi");
+                DialogResult = System.Windows.Forms.DialogResult.Cancel;
+                return;
+            }
+            // Display a MsgBox asking the user to close the form.
+            if (txtDLAdi.Text == "" || /*txtDLId.Text == "" ||*/ txtSensor1.Text == "" || txtSensor2.Text == "" || textBoxTelefonNumarasi.Text == "")
             {
                 MessageBox.Show("Boş kalan alanı doldurunuz!!");
+                e.Cancel = true;
                 return;
             }
             if (txtSensor2.Text == txtSensor1.Text)
             {
                 MessageBox.Show("Sensor Adları Aynı Olamaz!!");
+                e.Cancel = true;
                 return;
             }
+                // Cancel the Closing event
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
            
-            dl.SensorListesi = new List<Sensor>();
+            
             DialogResult = DialogResult.OK;
             dl.Isim = txtDLAdi.Text;
-            dl.Id = txtDLId.Text;
-            dl.SonKalibrasyonTarihi = dateTimeKalibrasyonTarihi.Value;
+            //dl.Id = txtDLId.Text;
+            //dl.SonKalibrasyonTarihi = dateTimeKalibrasyonTarihi.Value;
             dl.TelefonNumarasi = textBoxTelefonNumarasi.Text;
             double ustsic, altsic, ustnem, altnem, ustsic2, altsic2, ustnem2, altnem2;
             if (double.TryParse(textBoxUstSicaklik.Text, out ustsic))
@@ -105,15 +116,18 @@ namespace Arayuz
             {
                 dl.TehlikeliAltNem2 = altnem2;
             }
-            Sensor sensor1 = new Sensor();
-            sensor1.Isim = txtSensor1.Text;
-            sensor1.Index = 0;
-            dl.SensorListesi.Add(sensor1);
-            Sensor sensor2 = new Sensor();
-            sensor2.Isim = txtSensor2.Text;
-            sensor2.Index = 1;
-            dl.SensorListesi.Add(sensor2);
-
+            if (dl.SensorListesi == null || dl.SensorListesi.Count != 2 || txtSensor2.Text != txtSensor1.Text)
+            {
+                dl.SensorListesi = new List<Sensor>();
+                Sensor sensor1 = new Sensor();
+                sensor1.Isim = txtSensor1.Text;
+                sensor1.Index = 0;
+                dl.SensorListesi.Add(sensor1);
+                Sensor sensor2 = new Sensor();
+                sensor2.Isim = txtSensor2.Text;
+                sensor2.Index = 1;
+                dl.SensorListesi.Add(sensor2);
+            }
       //      Close();
             //dl.TxtPath = txtDosyaSecimi.Text;
         }
@@ -131,6 +145,14 @@ namespace Arayuz
                 dl.TxtPath = fs.FileName;
             }
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            string link = @"http://localhost:3000/musteri/";
+          //string c =  HttpHelper.sendGetRequest(link);
+          String json = "{\"kurum\":\"netolcer_test\",\"adres\":\"bilinmezlikgtutest23\",\"sehir\":\"darıca\",\"telno\":\"444345423\",\"mail\":\"mnetolcer23@m.com.tr\",\"password\":\"123453\"}";
+          string c = HttpHelper.sendPostRequest(link, Encoding.ASCII.GetBytes(json));
         }
 
        

@@ -51,7 +51,6 @@ D:\git\Net olcer\Arayuz\bin\Release\Netolcer.exe.config
 D:\git\Net olcer\Arayuz\obj\Release\Netolcer.exe
 D:\git\Net olcer\Arayuz\obj\Release\Netolcer.pdb
 D:\git\Net olcer\Arayuz\obj\Release\Arayuz.csprojResolveAssemblyReference.cache
-D:\git\Net olcer\Arayuz\obj\Release\Arayuz.Form1.resources
 D:\git\Net olcer\Arayuz\obj\Release\Arayuz.FrmAnaEkran.resources
 D:\git\Net olcer\Arayuz\obj\Release\Arayuz.FrmCiktiTarihDegistir.resources
 D:\git\Net olcer\Arayuz\obj\Release\Arayuz.FrmDataLoggerEkle.resources

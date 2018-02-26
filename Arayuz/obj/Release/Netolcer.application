@@ -7,14 +7,14 @@
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Netolcer.exe.manifest" size="6372">
+    <dependentAssembly dependencyType="install" codebase="Netolcer.exe.manifest" size="6373">
       <assemblyIdentity name="Netolcer.exe" version="1.0.0.5" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>sMXfVoAThBYP4qz1Cu0kyY4A6L1ONM+xBSa1ySByREM=</dsig:DigestValue>
+        <dsig:DigestValue>c6DTn/eQdX9k7sWsZYXCk/+vQxAObqOxUokUp/5zszI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

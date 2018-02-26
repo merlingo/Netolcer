@@ -67,7 +67,7 @@ namespace Arayuz
                         var y1Val = datalg.SensorListesi[0]._degerler.First(x => x.Zaman.Equals(new DateTime(xVal.Year, xVal.Month, xVal.Day, xVal.Hour, xVal.Minute, 0)) && x.Tip == tip).Deger;
                         var y2Val = datalg.SensorListesi[1]._degerler.First(x => x.Zaman.Equals(new DateTime(xVal.Year, xVal.Month, xVal.Day, xVal.Hour, xVal.Minute, 0)) && x.Tip == tip).Deger;
 
-                        tooltip.Show("Tarih=" + xVal.ToString() + ", sensor1=" + y1Val + ", sensor2=" + y2Val, this.chartDataLogger, e.Location.X, e.Location.Y - 15);
+                        tooltip.Show("Tarih=" + xVal.ToString() + ", " + datalg.SensorListesi[0].Isim + "=" + y1Val + ", " + datalg.SensorListesi[1].Isim + "=" + y2Val, this.chartDataLogger, e.Location.X, e.Location.Y - 15);
                     }
                     catch
                     {
