@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -170,8 +171,15 @@ namespace Arayuz
         {
             int c = deger.Count();
             if (deger.StartsWith("0"))
-                return double.Parse(deger) < (10 ^ (c - 2));
-            return double.Parse(deger) < (10 ^(c-1));
+            {
+                string s = deger.Substring(1);
+                if (s.StartsWith("0"))
+                    return double.Parse(deger) < (10 ^ (c - 3));
+                else
+                    return double.Parse(deger) < (10 ^ (c - 2));
+            }
+            else
+                return double.Parse(deger) < (10 ^ (c - 1));
         }
 
             public void ParsingText(bool verilerYuklensin=true)
@@ -251,10 +259,12 @@ namespace Arayuz
                                 double isi1, isi2, NemSensör1, NemSensör2;
                                 if (FormatGecerliMi(parcalar[1].Split(' ')[0]))//eğer txtdeki format geçerli değil ise . yerine , konulur
                                 {
-                                    isi1 = double.Parse(parcalar[1].Split(' ')[0]);
-                                    isi2 = double.Parse(parcalar[3].Split(' ')[0]);
-                                    NemSensör1 = double.Parse(parcalar[2].Split(' ')[0]);
-                                    NemSensör2 = double.Parse(parcalar[4].Split(' ')[0]);
+
+                                    isi1 = double.Parse(parcalar[1].Split(' ')[0], CultureInfo.InvariantCulture);
+                                    isi2 = double.Parse(parcalar[3].Split(' ')[0], CultureInfo.InvariantCulture);
+                                    NemSensör1 = double.Parse(parcalar[2].Split(' ')[0], CultureInfo.InvariantCulture);
+                                    NemSensör2 = double.Parse(parcalar[4].Split(' ')[0], CultureInfo.InvariantCulture);
+                                   
                                 }
                                 else
                                 {

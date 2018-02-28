@@ -201,8 +201,12 @@ namespace Arayuz
                 }
                 gvDataLoggerVerileri.DataSource = datalogger.Dt;
                 this.gvDataLoggerVerileri.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dlOrtalamaSicaklik.Text = datalogger.OrtalamaSicaklik().ToString();
-                dlOrtalamaNem.Text = datalogger.OrtalamaNem().ToString();
+                dlOrtalamaSicaklik.Text = datalogger.OrtalamaSicaklik(0).ToString();
+                dlOrtalamaSicaklik2.Text = datalogger.OrtalamaSicaklik(1).ToString();
+
+                dlOrtalamaNem.Text = datalogger.OrtalamaNem(0).ToString();
+                dlOrtalamaNem2.Text = datalogger.OrtalamaNem(1).ToString();
+
                 ilkDeger = minDate;
                 sonDeger = maxDate;
             }
@@ -217,8 +221,7 @@ namespace Arayuz
             //sensor adlari yaz
             labelSensor1.Text = datalogger.SensorListesi[0].Isim;
             labelSensor2.Text = datalogger.SensorListesi[1].Isim;
-            labelSensorNem1.Text = datalogger.SensorListesi[0].Isim;
-            labelSensorNem2.Text = datalogger.SensorListesi[1].Isim;
+          
             dlTehlikeliYuksekSicaklikDeger.Text = datalogger.TehlikeliUstSicaklik.ToString();
 
             dlTehlikeliDusukSicaklikDeger.Text = datalogger.TehlikeliAltSicaklik.ToString();

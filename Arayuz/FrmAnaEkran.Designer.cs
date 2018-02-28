@@ -60,13 +60,11 @@
             this.dlTehlikeliYuksekNemDeger2 = new System.Windows.Forms.Label();
             this.dlTehlikeliDusukSicaklikDeger2 = new System.Windows.Forms.Label();
             this.dlTehlikeliYuksekSicaklikDeger2 = new System.Windows.Forms.Label();
-            this.labelSensorNem2 = new System.Windows.Forms.Label();
-            this.labelSensorNem1 = new System.Windows.Forms.Label();
             this.labelSensor2 = new System.Windows.Forms.Label();
             this.labelSensor1 = new System.Windows.Forms.Label();
-            this.dlOrtalamaNem = new System.Windows.Forms.Label();
+            this.dlOrtalamaNem2 = new System.Windows.Forms.Label();
             this.lblIcinOrtalamaNem = new System.Windows.Forms.Label();
-            this.dlOrtalamaSicaklik = new System.Windows.Forms.Label();
+            this.dlOrtalamaSicaklik2 = new System.Windows.Forms.Label();
             this.lblIcinOrtalamaSicaklik = new System.Windows.Forms.Label();
             this.dlTehlikeliDusukNemDeger = new System.Windows.Forms.Label();
             this.dlTehlikeliYuksekNemDeger = new System.Windows.Forms.Label();
@@ -93,6 +91,8 @@
             this.açToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.çıkışToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.dlOrtalamaSicaklik = new System.Windows.Forms.Label();
+            this.dlOrtalamaNem = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -405,32 +405,32 @@
             this.tableLayoutPanel6.ColumnCount = 8;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.86161F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.87643F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.04569F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.334372F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.78401F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.22638F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.50906F));
+            this.tableLayoutPanel6.Controls.Add(this.dlOrtalamaNem, 7, 1);
+            this.tableLayoutPanel6.Controls.Add(this.dlOrtalamaSicaklik, 3, 1);
             this.tableLayoutPanel6.Controls.Add(this.dlTehlikeliDusukNemDeger2, 6, 2);
-            this.tableLayoutPanel6.Controls.Add(this.dlTehlikeliYuksekNemDeger2, 6, 1);
+            this.tableLayoutPanel6.Controls.Add(this.dlTehlikeliYuksekNemDeger2, 5, 2);
             this.tableLayoutPanel6.Controls.Add(this.dlTehlikeliDusukSicaklikDeger2, 2, 2);
-            this.tableLayoutPanel6.Controls.Add(this.dlTehlikeliYuksekSicaklikDeger2, 2, 1);
-            this.tableLayoutPanel6.Controls.Add(this.labelSensorNem2, 6, 0);
-            this.tableLayoutPanel6.Controls.Add(this.labelSensorNem1, 5, 0);
-            this.tableLayoutPanel6.Controls.Add(this.labelSensor2, 2, 0);
-            this.tableLayoutPanel6.Controls.Add(this.labelSensor1, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.dlOrtalamaNem, 7, 2);
-            this.tableLayoutPanel6.Controls.Add(this.lblIcinOrtalamaNem, 7, 1);
-            this.tableLayoutPanel6.Controls.Add(this.dlOrtalamaSicaklik, 3, 2);
-            this.tableLayoutPanel6.Controls.Add(this.lblIcinOrtalamaSicaklik, 3, 1);
-            this.tableLayoutPanel6.Controls.Add(this.dlTehlikeliDusukNemDeger, 5, 2);
+            this.tableLayoutPanel6.Controls.Add(this.dlTehlikeliYuksekSicaklikDeger2, 1, 2);
+            this.tableLayoutPanel6.Controls.Add(this.labelSensor2, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.labelSensor1, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.dlOrtalamaNem2, 7, 2);
+            this.tableLayoutPanel6.Controls.Add(this.lblIcinOrtalamaNem, 7, 0);
+            this.tableLayoutPanel6.Controls.Add(this.dlOrtalamaSicaklik2, 3, 2);
+            this.tableLayoutPanel6.Controls.Add(this.lblIcinOrtalamaSicaklik, 3, 0);
+            this.tableLayoutPanel6.Controls.Add(this.dlTehlikeliDusukNemDeger, 6, 1);
             this.tableLayoutPanel6.Controls.Add(this.dlTehlikeliYuksekNemDeger, 5, 1);
-            this.tableLayoutPanel6.Controls.Add(this.dlTehlikeliDusukSicaklikDeger, 1, 2);
+            this.tableLayoutPanel6.Controls.Add(this.dlTehlikeliDusukSicaklikDeger, 2, 1);
             this.tableLayoutPanel6.Controls.Add(this.dlTehlikeliYuksekSicaklikDeger, 1, 1);
-            this.tableLayoutPanel6.Controls.Add(this.lblIcinEnDusukNem, 4, 2);
-            this.tableLayoutPanel6.Controls.Add(this.lblIcinEnYuksekNem, 4, 1);
-            this.tableLayoutPanel6.Controls.Add(this.lblIcinEnDusukSicaklik, 0, 2);
-            this.tableLayoutPanel6.Controls.Add(this.lblIcinEnYuksekCicaklik, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.lblIcinEnDusukNem, 6, 0);
+            this.tableLayoutPanel6.Controls.Add(this.lblIcinEnYuksekNem, 5, 0);
+            this.tableLayoutPanel6.Controls.Add(this.lblIcinEnDusukSicaklik, 2, 0);
+            this.tableLayoutPanel6.Controls.Add(this.lblIcinEnYuksekCicaklik, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 25);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -438,6 +438,9 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.44186F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.37209F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.34884F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(963, 81);
             this.tableLayoutPanel6.TabIndex = 2;
             // 
@@ -448,9 +451,9 @@
             this.dlTehlikeliDusukNemDeger2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dlTehlikeliDusukNemDeger2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dlTehlikeliDusukNemDeger2.ForeColor = System.Drawing.Color.Teal;
-            this.dlTehlikeliDusukNemDeger2.Location = new System.Drawing.Point(717, 43);
+            this.dlTehlikeliDusukNemDeger2.Location = new System.Drawing.Point(696, 43);
             this.dlTehlikeliDusukNemDeger2.Name = "dlTehlikeliDusukNemDeger2";
-            this.dlTehlikeliDusukNemDeger2.Size = new System.Drawing.Size(107, 38);
+            this.dlTehlikeliDusukNemDeger2.Size = new System.Drawing.Size(131, 38);
             this.dlTehlikeliDusukNemDeger2.TabIndex = 38;
             this.dlTehlikeliDusukNemDeger2.Text = "-";
             this.dlTehlikeliDusukNemDeger2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -463,9 +466,9 @@
             this.dlTehlikeliYuksekNemDeger2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dlTehlikeliYuksekNemDeger2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dlTehlikeliYuksekNemDeger2.ForeColor = System.Drawing.Color.DarkRed;
-            this.dlTehlikeliYuksekNemDeger2.Location = new System.Drawing.Point(717, 13);
+            this.dlTehlikeliYuksekNemDeger2.Location = new System.Drawing.Point(544, 43);
             this.dlTehlikeliYuksekNemDeger2.Name = "dlTehlikeliYuksekNemDeger2";
-            this.dlTehlikeliYuksekNemDeger2.Size = new System.Drawing.Size(107, 30);
+            this.dlTehlikeliYuksekNemDeger2.Size = new System.Drawing.Size(146, 38);
             this.dlTehlikeliYuksekNemDeger2.TabIndex = 37;
             this.dlTehlikeliYuksekNemDeger2.Text = "-";
             this.dlTehlikeliYuksekNemDeger2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -478,9 +481,9 @@
             this.dlTehlikeliDusukSicaklikDeger2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dlTehlikeliDusukSicaklikDeger2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dlTehlikeliDusukSicaklikDeger2.ForeColor = System.Drawing.Color.Teal;
-            this.dlTehlikeliDusukSicaklikDeger2.Location = new System.Drawing.Point(241, 43);
+            this.dlTehlikeliDusukSicaklikDeger2.Location = new System.Drawing.Point(243, 43);
             this.dlTehlikeliDusukSicaklikDeger2.Name = "dlTehlikeliDusukSicaklikDeger2";
-            this.dlTehlikeliDusukSicaklikDeger2.Size = new System.Drawing.Size(113, 38);
+            this.dlTehlikeliDusukSicaklikDeger2.Size = new System.Drawing.Size(118, 38);
             this.dlTehlikeliDusukSicaklikDeger2.TabIndex = 36;
             this.dlTehlikeliDusukSicaklikDeger2.Text = "-";
             this.dlTehlikeliDusukSicaklikDeger2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -493,46 +496,22 @@
             this.dlTehlikeliYuksekSicaklikDeger2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dlTehlikeliYuksekSicaklikDeger2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dlTehlikeliYuksekSicaklikDeger2.ForeColor = System.Drawing.Color.DarkRed;
-            this.dlTehlikeliYuksekSicaklikDeger2.Location = new System.Drawing.Point(241, 13);
+            this.dlTehlikeliYuksekSicaklikDeger2.Location = new System.Drawing.Point(123, 43);
             this.dlTehlikeliYuksekSicaklikDeger2.Name = "dlTehlikeliYuksekSicaklikDeger2";
-            this.dlTehlikeliYuksekSicaklikDeger2.Size = new System.Drawing.Size(113, 30);
+            this.dlTehlikeliYuksekSicaklikDeger2.Size = new System.Drawing.Size(114, 38);
             this.dlTehlikeliYuksekSicaklikDeger2.TabIndex = 35;
             this.dlTehlikeliYuksekSicaklikDeger2.Text = "-";
             this.dlTehlikeliYuksekSicaklikDeger2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.dlTehlikeliYuksekSicaklikDeger2.Click += new System.EventHandler(this.dlTehlikeliYuksekSicaklikDeger2_Click);
-            // 
-            // labelSensorNem2
-            // 
-            this.labelSensorNem2.AutoSize = true;
-            this.labelSensorNem2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelSensorNem2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelSensorNem2.Location = new System.Drawing.Point(717, 0);
-            this.labelSensorNem2.Name = "labelSensorNem2";
-            this.labelSensorNem2.Size = new System.Drawing.Size(107, 13);
-            this.labelSensorNem2.TabIndex = 34;
-            this.labelSensorNem2.Text = "2.Sensor";
-            this.labelSensorNem2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelSensorNem1
-            // 
-            this.labelSensorNem1.AutoSize = true;
-            this.labelSensorNem1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelSensorNem1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelSensorNem1.Location = new System.Drawing.Point(598, 0);
-            this.labelSensorNem1.Name = "labelSensorNem1";
-            this.labelSensorNem1.Size = new System.Drawing.Size(113, 13);
-            this.labelSensorNem1.TabIndex = 33;
-            this.labelSensorNem1.Text = "1.Sensor";
-            this.labelSensorNem1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelSensor2
             // 
             this.labelSensor2.AutoSize = true;
             this.labelSensor2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelSensor2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelSensor2.Location = new System.Drawing.Point(241, 0);
+            this.labelSensor2.Location = new System.Drawing.Point(3, 43);
             this.labelSensor2.Name = "labelSensor2";
-            this.labelSensor2.Size = new System.Drawing.Size(113, 13);
+            this.labelSensor2.Size = new System.Drawing.Size(114, 38);
             this.labelSensor2.TabIndex = 32;
             this.labelSensor2.Text = "2.Sensor";
             this.labelSensor2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -542,26 +521,26 @@
             this.labelSensor1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSensor1.AutoSize = true;
             this.labelSensor1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelSensor1.Location = new System.Drawing.Point(122, 0);
+            this.labelSensor1.Location = new System.Drawing.Point(3, 20);
             this.labelSensor1.Name = "labelSensor1";
-            this.labelSensor1.Size = new System.Drawing.Size(113, 13);
+            this.labelSensor1.Size = new System.Drawing.Size(114, 15);
             this.labelSensor1.TabIndex = 31;
             this.labelSensor1.Text = "1.sensor";
             this.labelSensor1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dlOrtalamaNem
+            // dlOrtalamaNem2
             // 
-            this.dlOrtalamaNem.AutoSize = true;
-            this.dlOrtalamaNem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dlOrtalamaNem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dlOrtalamaNem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dlOrtalamaNem.ForeColor = System.Drawing.Color.Teal;
-            this.dlOrtalamaNem.Location = new System.Drawing.Point(830, 43);
-            this.dlOrtalamaNem.Name = "dlOrtalamaNem";
-            this.dlOrtalamaNem.Size = new System.Drawing.Size(130, 38);
-            this.dlOrtalamaNem.TabIndex = 26;
-            this.dlOrtalamaNem.Text = "-";
-            this.dlOrtalamaNem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.dlOrtalamaNem2.AutoSize = true;
+            this.dlOrtalamaNem2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dlOrtalamaNem2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dlOrtalamaNem2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dlOrtalamaNem2.ForeColor = System.Drawing.Color.Teal;
+            this.dlOrtalamaNem2.Location = new System.Drawing.Point(833, 43);
+            this.dlOrtalamaNem2.Name = "dlOrtalamaNem2";
+            this.dlOrtalamaNem2.Size = new System.Drawing.Size(127, 38);
+            this.dlOrtalamaNem2.TabIndex = 26;
+            this.dlOrtalamaNem2.Text = "-";
+            this.dlOrtalamaNem2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIcinOrtalamaNem
             // 
@@ -569,26 +548,26 @@
             this.lblIcinOrtalamaNem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblIcinOrtalamaNem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblIcinOrtalamaNem.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblIcinOrtalamaNem.Location = new System.Drawing.Point(830, 13);
+            this.lblIcinOrtalamaNem.Location = new System.Drawing.Point(833, 0);
             this.lblIcinOrtalamaNem.Name = "lblIcinOrtalamaNem";
-            this.lblIcinOrtalamaNem.Size = new System.Drawing.Size(130, 30);
+            this.lblIcinOrtalamaNem.Size = new System.Drawing.Size(127, 13);
             this.lblIcinOrtalamaNem.TabIndex = 25;
             this.lblIcinOrtalamaNem.Text = "Ortalama Nem";
             this.lblIcinOrtalamaNem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dlOrtalamaSicaklik
+            // dlOrtalamaSicaklik2
             // 
-            this.dlOrtalamaSicaklik.AutoSize = true;
-            this.dlOrtalamaSicaklik.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dlOrtalamaSicaklik.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dlOrtalamaSicaklik.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dlOrtalamaSicaklik.ForeColor = System.Drawing.Color.DarkRed;
-            this.dlOrtalamaSicaklik.Location = new System.Drawing.Point(360, 43);
-            this.dlOrtalamaSicaklik.Name = "dlOrtalamaSicaklik";
-            this.dlOrtalamaSicaklik.Size = new System.Drawing.Size(113, 38);
-            this.dlOrtalamaSicaklik.TabIndex = 24;
-            this.dlOrtalamaSicaklik.Text = "-";
-            this.dlOrtalamaSicaklik.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.dlOrtalamaSicaklik2.AutoSize = true;
+            this.dlOrtalamaSicaklik2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dlOrtalamaSicaklik2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dlOrtalamaSicaklik2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dlOrtalamaSicaklik2.ForeColor = System.Drawing.Color.DarkRed;
+            this.dlOrtalamaSicaklik2.Location = new System.Drawing.Point(367, 43);
+            this.dlOrtalamaSicaklik2.Name = "dlOrtalamaSicaklik2";
+            this.dlOrtalamaSicaklik2.Size = new System.Drawing.Size(110, 38);
+            this.dlOrtalamaSicaklik2.TabIndex = 24;
+            this.dlOrtalamaSicaklik2.Text = "-";
+            this.dlOrtalamaSicaklik2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIcinOrtalamaSicaklik
             // 
@@ -596,9 +575,9 @@
             this.lblIcinOrtalamaSicaklik.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblIcinOrtalamaSicaklik.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblIcinOrtalamaSicaklik.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblIcinOrtalamaSicaklik.Location = new System.Drawing.Point(360, 13);
+            this.lblIcinOrtalamaSicaklik.Location = new System.Drawing.Point(367, 0);
             this.lblIcinOrtalamaSicaklik.Name = "lblIcinOrtalamaSicaklik";
-            this.lblIcinOrtalamaSicaklik.Size = new System.Drawing.Size(113, 30);
+            this.lblIcinOrtalamaSicaklik.Size = new System.Drawing.Size(110, 13);
             this.lblIcinOrtalamaSicaklik.TabIndex = 23;
             this.lblIcinOrtalamaSicaklik.Text = "Ortalama Sıcaklık";
             this.lblIcinOrtalamaSicaklik.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -610,9 +589,9 @@
             this.dlTehlikeliDusukNemDeger.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dlTehlikeliDusukNemDeger.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dlTehlikeliDusukNemDeger.ForeColor = System.Drawing.Color.Teal;
-            this.dlTehlikeliDusukNemDeger.Location = new System.Drawing.Point(598, 43);
+            this.dlTehlikeliDusukNemDeger.Location = new System.Drawing.Point(696, 13);
             this.dlTehlikeliDusukNemDeger.Name = "dlTehlikeliDusukNemDeger";
-            this.dlTehlikeliDusukNemDeger.Size = new System.Drawing.Size(113, 38);
+            this.dlTehlikeliDusukNemDeger.Size = new System.Drawing.Size(131, 30);
             this.dlTehlikeliDusukNemDeger.TabIndex = 22;
             this.dlTehlikeliDusukNemDeger.Text = "-";
             this.dlTehlikeliDusukNemDeger.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -625,9 +604,9 @@
             this.dlTehlikeliYuksekNemDeger.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dlTehlikeliYuksekNemDeger.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dlTehlikeliYuksekNemDeger.ForeColor = System.Drawing.Color.DarkRed;
-            this.dlTehlikeliYuksekNemDeger.Location = new System.Drawing.Point(598, 13);
+            this.dlTehlikeliYuksekNemDeger.Location = new System.Drawing.Point(544, 13);
             this.dlTehlikeliYuksekNemDeger.Name = "dlTehlikeliYuksekNemDeger";
-            this.dlTehlikeliYuksekNemDeger.Size = new System.Drawing.Size(113, 30);
+            this.dlTehlikeliYuksekNemDeger.Size = new System.Drawing.Size(146, 30);
             this.dlTehlikeliYuksekNemDeger.TabIndex = 18;
             this.dlTehlikeliYuksekNemDeger.Text = "-";
             this.dlTehlikeliYuksekNemDeger.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -640,9 +619,9 @@
             this.dlTehlikeliDusukSicaklikDeger.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dlTehlikeliDusukSicaklikDeger.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dlTehlikeliDusukSicaklikDeger.ForeColor = System.Drawing.Color.Teal;
-            this.dlTehlikeliDusukSicaklikDeger.Location = new System.Drawing.Point(122, 43);
+            this.dlTehlikeliDusukSicaklikDeger.Location = new System.Drawing.Point(243, 13);
             this.dlTehlikeliDusukSicaklikDeger.Name = "dlTehlikeliDusukSicaklikDeger";
-            this.dlTehlikeliDusukSicaklikDeger.Size = new System.Drawing.Size(113, 38);
+            this.dlTehlikeliDusukSicaklikDeger.Size = new System.Drawing.Size(118, 30);
             this.dlTehlikeliDusukSicaklikDeger.TabIndex = 15;
             this.dlTehlikeliDusukSicaklikDeger.Text = "-";
             this.dlTehlikeliDusukSicaklikDeger.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -655,9 +634,9 @@
             this.dlTehlikeliYuksekSicaklikDeger.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dlTehlikeliYuksekSicaklikDeger.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dlTehlikeliYuksekSicaklikDeger.ForeColor = System.Drawing.Color.DarkRed;
-            this.dlTehlikeliYuksekSicaklikDeger.Location = new System.Drawing.Point(122, 13);
+            this.dlTehlikeliYuksekSicaklikDeger.Location = new System.Drawing.Point(123, 13);
             this.dlTehlikeliYuksekSicaklikDeger.Name = "dlTehlikeliYuksekSicaklikDeger";
-            this.dlTehlikeliYuksekSicaklikDeger.Size = new System.Drawing.Size(113, 30);
+            this.dlTehlikeliYuksekSicaklikDeger.Size = new System.Drawing.Size(114, 30);
             this.dlTehlikeliYuksekSicaklikDeger.TabIndex = 13;
             this.dlTehlikeliYuksekSicaklikDeger.Text = "-";
             this.dlTehlikeliYuksekSicaklikDeger.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -668,11 +647,11 @@
             this.lblIcinEnDusukNem.AutoSize = true;
             this.lblIcinEnDusukNem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblIcinEnDusukNem.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblIcinEnDusukNem.Location = new System.Drawing.Point(479, 43);
+            this.lblIcinEnDusukNem.Location = new System.Drawing.Point(696, 0);
             this.lblIcinEnDusukNem.Name = "lblIcinEnDusukNem";
-            this.lblIcinEnDusukNem.Size = new System.Drawing.Size(113, 38);
+            this.lblIcinEnDusukNem.Size = new System.Drawing.Size(131, 13);
             this.lblIcinEnDusukNem.TabIndex = 10;
-            this.lblIcinEnDusukNem.Text = "Tehlikeli Düşük Nem";
+            this.lblIcinEnDusukNem.Text = "Düşük Nem";
             this.lblIcinEnDusukNem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIcinEnYuksekNem
@@ -680,11 +659,11 @@
             this.lblIcinEnYuksekNem.AutoSize = true;
             this.lblIcinEnYuksekNem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblIcinEnYuksekNem.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblIcinEnYuksekNem.Location = new System.Drawing.Point(479, 13);
+            this.lblIcinEnYuksekNem.Location = new System.Drawing.Point(544, 0);
             this.lblIcinEnYuksekNem.Name = "lblIcinEnYuksekNem";
-            this.lblIcinEnYuksekNem.Size = new System.Drawing.Size(113, 30);
+            this.lblIcinEnYuksekNem.Size = new System.Drawing.Size(146, 13);
             this.lblIcinEnYuksekNem.TabIndex = 9;
-            this.lblIcinEnYuksekNem.Text = "Tehlikeli Yüksek Nem";
+            this.lblIcinEnYuksekNem.Text = "Yüksek Nem";
             this.lblIcinEnYuksekNem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIcinEnDusukSicaklik
@@ -692,11 +671,11 @@
             this.lblIcinEnDusukSicaklik.AutoSize = true;
             this.lblIcinEnDusukSicaklik.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblIcinEnDusukSicaklik.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblIcinEnDusukSicaklik.Location = new System.Drawing.Point(3, 43);
+            this.lblIcinEnDusukSicaklik.Location = new System.Drawing.Point(243, 0);
             this.lblIcinEnDusukSicaklik.Name = "lblIcinEnDusukSicaklik";
-            this.lblIcinEnDusukSicaklik.Size = new System.Drawing.Size(113, 38);
+            this.lblIcinEnDusukSicaklik.Size = new System.Drawing.Size(118, 13);
             this.lblIcinEnDusukSicaklik.TabIndex = 8;
-            this.lblIcinEnDusukSicaklik.Text = "Tehlikeli Düşük Sıcaklık";
+            this.lblIcinEnDusukSicaklik.Text = "Düşük Sıcaklık";
             this.lblIcinEnDusukSicaklik.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblIcinEnYuksekCicaklik
@@ -704,11 +683,11 @@
             this.lblIcinEnYuksekCicaklik.AutoSize = true;
             this.lblIcinEnYuksekCicaklik.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblIcinEnYuksekCicaklik.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblIcinEnYuksekCicaklik.Location = new System.Drawing.Point(3, 13);
+            this.lblIcinEnYuksekCicaklik.Location = new System.Drawing.Point(123, 0);
             this.lblIcinEnYuksekCicaklik.Name = "lblIcinEnYuksekCicaklik";
-            this.lblIcinEnYuksekCicaklik.Size = new System.Drawing.Size(113, 30);
+            this.lblIcinEnYuksekCicaklik.Size = new System.Drawing.Size(114, 13);
             this.lblIcinEnYuksekCicaklik.TabIndex = 7;
-            this.lblIcinEnYuksekCicaklik.Text = "Tehlikeli Yüksek Sıcaklık";
+            this.lblIcinEnYuksekCicaklik.Text = "Yüksek Sıcaklık";
             this.lblIcinEnYuksekCicaklik.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gvDataLoggerVerileri
@@ -949,6 +928,34 @@
             this.notifyIcon1.Text = "Net Ölçer";
             this.notifyIcon1.Visible = true;
             // 
+            // dlOrtalamaSicaklik
+            // 
+            this.dlOrtalamaSicaklik.AutoSize = true;
+            this.dlOrtalamaSicaklik.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dlOrtalamaSicaklik.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dlOrtalamaSicaklik.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dlOrtalamaSicaklik.ForeColor = System.Drawing.Color.DarkRed;
+            this.dlOrtalamaSicaklik.Location = new System.Drawing.Point(367, 13);
+            this.dlOrtalamaSicaklik.Name = "dlOrtalamaSicaklik";
+            this.dlOrtalamaSicaklik.Size = new System.Drawing.Size(110, 30);
+            this.dlOrtalamaSicaklik.TabIndex = 39;
+            this.dlOrtalamaSicaklik.Text = "-";
+            this.dlOrtalamaSicaklik.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dlOrtalamaNem
+            // 
+            this.dlOrtalamaNem.AutoSize = true;
+            this.dlOrtalamaNem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dlOrtalamaNem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dlOrtalamaNem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dlOrtalamaNem.ForeColor = System.Drawing.Color.Teal;
+            this.dlOrtalamaNem.Location = new System.Drawing.Point(833, 13);
+            this.dlOrtalamaNem.Name = "dlOrtalamaNem";
+            this.dlOrtalamaNem.Size = new System.Drawing.Size(127, 30);
+            this.dlOrtalamaNem.TabIndex = 40;
+            this.dlOrtalamaNem.Text = "-";
+            this.dlOrtalamaNem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmAnaEkran
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1040,13 +1047,11 @@
         private System.Windows.Forms.Label dlTehlikeliYuksekNemDeger2;
         private System.Windows.Forms.Label dlTehlikeliDusukSicaklikDeger2;
         private System.Windows.Forms.Label dlTehlikeliYuksekSicaklikDeger2;
-        private System.Windows.Forms.Label labelSensorNem2;
-        private System.Windows.Forms.Label labelSensorNem1;
         private System.Windows.Forms.Label labelSensor2;
         private System.Windows.Forms.Label labelSensor1;
-        private System.Windows.Forms.Label dlOrtalamaNem;
+        private System.Windows.Forms.Label dlOrtalamaNem2;
         private System.Windows.Forms.Label lblIcinOrtalamaNem;
-        private System.Windows.Forms.Label dlOrtalamaSicaklik;
+        private System.Windows.Forms.Label dlOrtalamaSicaklik2;
         private System.Windows.Forms.Label lblIcinOrtalamaSicaklik;
         private System.Windows.Forms.Label dlTehlikeliDusukNemDeger;
         private System.Windows.Forms.Label dlTehlikeliYuksekNemDeger;
@@ -1060,5 +1065,7 @@
         private System.Windows.Forms.ToolStripMenuItem açToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem çıkışToolStripMenuItem;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Label dlOrtalamaNem;
+        private System.Windows.Forms.Label dlOrtalamaSicaklik;
     }
 }
